@@ -145,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "crosswords-buddy"
+    }
+  },
+  "defaultProject": "crosswords-buddy",
+  "cli": {
+    "analytics": false
+  }
 }
