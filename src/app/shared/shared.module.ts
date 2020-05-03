@@ -11,6 +11,7 @@ import { UiModule } from 'src/app/shared/ui/ui.module';
   ],
   exports: [
     UiModule,
+    CommonModule,
   ]
 })
 export class SharedModule {}

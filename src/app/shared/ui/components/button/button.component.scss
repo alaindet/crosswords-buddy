@@ -1,0 +1,30 @@
+@import 'src/app/style';
+
+button {
+
+  @include pal-space(m1/2 py1 px2);
+  background-color: pal-color-get('gray-light');
+  border: none;
+  border-radius: pal-get('units.3/4');
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color: pal-color-get('gray-light');
+    background-color: darken(pal-color-get('gray-light'), 10%);
+  }
+}
+
+button.size-small {
+  @include pal-space(py1/2 px2);
+  font-size: 0.95rem;
+}
+
+button.size-medium {
+  @include pal-space(py1 px2);
+  font-size: 1rem;
+}
+
+button.size-large {
+  @include pal-space(py2 px4);
+  font-size: 1.05rem;
+}
