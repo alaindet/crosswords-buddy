@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SharedModule } from 'src/app/shared/shared.module';
 import { DefinitionsShowPageComponent } from './pages/show/show.component';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
     DefinitionsShowPageComponent,
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild(routes),
   ]
 })

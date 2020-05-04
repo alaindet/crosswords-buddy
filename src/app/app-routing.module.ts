@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 import { NotFoundPageComponent } from 'src/app/core/pages/not-found/not-found.component';
-import { TestsPageComponent } from 'src/app/features/tests/pages/tests/tests.component';
 
 const DEFAULT_ROUTE = '/recent';
 
@@ -15,19 +14,23 @@ let routes: Routes = [
   },
   {
     path: 'recent',
-    loadChildren: () => import('./features/recent/recent.module').then(m => m.RecentModule),
+    loadChildren: () => import('./features/recent/recent.module')
+      .then(m => m.RecentModule),
   },
   {
     path: 'definitions',
-    loadChildren: () => import('./features/definitions/definitions.module').then(m => m.DefinitionsModule),
+    loadChildren: () => import('./features/definitions/definitions.module')
+      .then(m => m.DefinitionsModule),
   },
   {
     path: 'search',
-    loadChildren: () => import('./features/search/search.module').then(m => m.SearchModule),
+    loadChildren: () => import('./features/search/search.module')
+      .then(m => m.SearchModule),
   },
   {
     path: 'load',
-    loadChildren: () => import('./features/load/load.module').then(m => m.LoadModule),
+    loadChildren: () => import('./features/load/load.module')
+      .then(m => m.LoadModule),
   },
   {
     path: '**',
@@ -40,7 +43,8 @@ if (!environment.production) {
   routes = [
     {
       path: 'tests',
-      component: TestsPageComponent,
+      loadChildren: () => import('./features/tests/tests.module')
+        .then(m => m.TestsModule),
     },
     ...routes
   ];

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { SharedModule } from 'src/app/shared/shared.module';
 import { SearchPageComponent } from './pages/search/search.component';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
     SearchPageComponent,
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild(routes),
   ]
 })

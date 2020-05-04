@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+import { TestsRoutingModule } from './test-routing.module';
 import { TestsPageComponent } from './pages/tests/tests.component';
+import { TestButtonsComponent } from './pages/buttons/buttons.component';
 
 @NgModule({
   declarations: [
-    TestsPageComponent
+    TestsPageComponent,
+    TestButtonsComponent
   ],
   imports: [
-    CommonModule
+    SharedModule,
+    TestsRoutingModule,
   ],
-  exports: [
-    TestsPageComponent,
-  ]
 })
 export class TestsModule {}

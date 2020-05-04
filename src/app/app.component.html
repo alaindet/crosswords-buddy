@@ -16,6 +16,9 @@
   <li *ngIf="!env.production">
     <a routerLink="/tests">Tests</a>
   </li>
+  <li *ngIf="!env.production">
+    <a routerLink="/tests/buttons">Tests: buttons</a>
+  </li>
 </ul>
 
 <router-outlet></router-outlet>
