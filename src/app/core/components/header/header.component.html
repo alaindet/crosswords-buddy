@@ -1,6 +1,8 @@
 <header>
   <div class="container">
     <h1>{{ title }}</h1>
-    <div class="menu-handle">Menu</div>
+    <div class="menu-handle" (click)="onToggleMenu()">
+      {{ (ui.menuIsOpen | async) ? 'Close' : 'Menu' }}
+    </div>
   </div>
 </header>

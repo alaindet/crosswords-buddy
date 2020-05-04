@@ -1,1 +1,12 @@
-<p>side-menu works!</p>
+<aside *ngIf="ui.menuIsOpen | async">
+  <ul>
+    <li
+      *ngFor="let link of links"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="link.options"
+      (click)="onLinkClick(link.url)"
+    >
+      <a [routerLink]="link.url">{{ link.label }}</a>
+    </li>
+  </ul>
+</aside>

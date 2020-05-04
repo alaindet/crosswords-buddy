@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NotFoundPageComponent } from './pages/not-found/not-found.component';
@@ -17,6 +18,7 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule,
   ],
   exports: [
     SharedModule,
