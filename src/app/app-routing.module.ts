@@ -42,9 +42,9 @@ let routes: Routes = [
 if (!environment.production) {
   routes = [
     {
-      path: 'tests',
-      loadChildren: () => import('./features/tests/tests.module')
-        .then(m => m.TestsModule),
+      path: 'test',
+      loadChildren: () => import('./features/test/test.module')
+        .then(m => m.TestModule),
     },
     ...routes
   ];

@@ -15,4 +15,4 @@ import { TestButtonsComponent } from './pages/buttons/buttons.component';
     TestsRoutingModule,
   ],
 })
-export class TestsModule {}
+export class TestModule {}
