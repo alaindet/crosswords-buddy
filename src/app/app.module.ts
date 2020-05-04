@@ -1,5 +1,4 @@
-import { environment } from 'src/environments/environment';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from 'src/app/app-routing.module';
@@ -13,6 +12,9 @@ import { CoreModule } from 'src/app/core/core.module';
     CoreModule,
   ],
   declarations: [AppComponent],
-  bootstrap: [AppComponent]
+  providers: [
+    Title,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

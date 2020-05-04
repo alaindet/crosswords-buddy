@@ -1,0 +1,12 @@
+@import 'src/app/style';
+
+:host {
+  @include pal((
+    size: w-screen h-screen,
+    flex: (
+      dir: column,
+      main-axis: between,
+      cross-axis: stretch,
+    ),
+  ));
+}
