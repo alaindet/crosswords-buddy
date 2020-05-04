@@ -1,15 +1,9 @@
 @import 'src/app/style';
 
 button {
-
   @include pal((
-    '*': (
-      'color': 'black' 'white',
-      'border': none,
-    ),
-    ':hover': (
-      color: lighten(pal-color-get('black'), 10%),
-    ),
+    border: none,
+    space: m1,
   ));
 
   transition: all 0.15s ease-in-out;
@@ -21,18 +15,45 @@ button {
   }
 }
 
+// Color
+.color-primary {
+  @include pal((
+    '*': (color: 'black' 'white'),
+    ':hover': (color: 'gray-dark')
+  ));
+}
+
+.color-secondary {
+  @include pal((
+    '*': (color: 'gray'),
+    ':hover': (color: 'gray-light'),
+  ));
+}
+
 // Size
-button.size-small {
+.size-small {
   @include pal-space('py0,7' 'px2');
   font-size: 0.95rem;
 }
 
-button.size-medium {
+.size-medium {
   @include pal-space('py1,5' 'px3');
   font-size: 1.1rem;
 }
 
-button.size-large {
+.size-large {
   @include pal-space(py2 px5);
   font-size: 1.3rem;
+}
+
+// Margin
+.no-margin {
+  @include pal-space(m0);
+}
+
+// Full width
+.is-full-width {
+  display: block;
+  width: 100%;
+  margin: 0;
 }
