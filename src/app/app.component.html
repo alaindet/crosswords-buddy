@@ -1,13 +1,21 @@
 <h1>Crosswords Buddy</h1>
 
-<ui-button size="small">
-  Small
-</ui-button>
+<ul>
+  <li>
+    <a routerLink="/recent">Recent</a>
+  </li>
+  <li>
+    <a routerLink="/definitions/123">Show definition</a>
+  </li>
+  <li>
+    <a routerLink="/search">Search</a>
+  </li>
+  <li>
+    <a routerLink="/load">Load</a>
+  </li>
+  <li *ngIf="!env.production">
+    <a routerLink="/tests">Tests</a>
+  </li>
+</ul>
 
-<ui-button size="medium">
-  Medium
-</ui-button>
-
-<ui-button size="large">
-  Large
-</ui-button>
+<router-outlet></router-outlet>
