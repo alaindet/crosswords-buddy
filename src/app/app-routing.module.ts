@@ -16,6 +16,7 @@ let routes: Routes = [
     path: 'recent',
     loadChildren: () => import('./features/recent/recent.module')
       .then(m => m.RecentModule),
+    data: { title: 'Recent' },
   },
   {
     path: 'definitions',
@@ -26,15 +27,18 @@ let routes: Routes = [
     path: 'search',
     loadChildren: () => import('./features/search/search.module')
       .then(m => m.SearchModule),
+    data: { title: 'Search' },
   },
   {
     path: 'load',
     loadChildren: () => import('./features/load/load.module')
       .then(m => m.LoadModule),
+    data: { title: 'Load' },
   },
   {
     path: '**',
     component: NotFoundPageComponent,
+    data: { title: '404' },
   }
 ];
 
@@ -45,6 +49,7 @@ if (!environment.production) {
       path: 'test',
       loadChildren: () => import('./features/test/test.module')
         .then(m => m.TestModule),
+      data: { title: 'Test' },
     },
     ...routes
   ];

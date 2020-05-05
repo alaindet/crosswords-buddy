@@ -9,6 +9,7 @@ import { DefinitionsService } from 'src/app/core/services/definitions.service';
 export class UiService {
 
   private menuIsOpen$ = new BehaviorSubject<boolean>(false);
+  private title$ = new BehaviorSubject<string>('CrosswordsBuddy');
 
   constructor(
     private definitionsService: DefinitionsService,
@@ -16,6 +17,10 @@ export class UiService {
 
   get menuIsOpen() {
     return this.menuIsOpen$.asObservable();
+  }
+
+  get title() {
+    return this.title$.asObservable();
   }
 
   get direction () {
@@ -32,5 +37,9 @@ export class UiService {
 
   toggleMenu() {
     this.menuIsOpen$.next(!this.menuIsOpen$.value);
+  }
+
+  setTitle(title: string) {
+    this.title$.next(title);
   }
 }

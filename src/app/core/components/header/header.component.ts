@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
 import { UiService } from 'src/app/core/services/ui.service';
 
@@ -8,18 +7,11 @@ import { UiService } from 'src/app/core/services/ui.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-
-  public title: string;
+export class HeaderComponent {
 
   constructor(
     public ui: UiService,
-    private titleService: Title,
   ) {}
-
-  ngOnInit(){
-    this.title = this.titleService.getTitle();
-  }
 
   onToggleMenu() {
     this.ui.toggleMenu();
