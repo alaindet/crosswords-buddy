@@ -13,12 +13,34 @@ header {
 }
 
 .breadcrumbs {
-  font-size: 1.2rem;
   font-style: italic;
   @include pal((
     flex: ( cross-axis: center ),
     space: py2,
   ));
+}
+
+.logo {
+  box-shadow: -2px 5px 5px 0 rgba(0, 0, 0, 0.2);
+
+  &-left,
+  &-right {
+    @include pal((
+      space: p1/2,
+    ));
+  }
+
+  &-left {
+    @include pal((
+      color: 'black' 'white',
+    ));
+  }
+
+  &-right {
+    @include pal((
+      color: 'white' 'black',
+    ));
+  }
 }
 
 .menu-handle {
