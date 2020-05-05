@@ -8,6 +8,12 @@ button {
     space: m1,
   ));
 
+  &:active,
+  &:focus {
+    outline: none;
+    border: 2px solid pal-color-get('gray');
+  }
+
   @include app-fast-shadow-hover {
     box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.25);
     border-radius: pal-get('units.3/4');
@@ -30,11 +36,10 @@ button {
 }
 
 // Active
-button:active,
-button:focus,
+button:focus.is-active,
+button:active.is-active,
 .is-active {
-  outline: none;
-  border: 2px solid pal-color-get('gray');
+  border: 2px solid pal-color-get('green');
 }
 
 .is-active.color-secondary {
