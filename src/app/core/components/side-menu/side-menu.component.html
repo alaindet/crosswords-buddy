@@ -1,7 +1,7 @@
 <aside *ngIf="ui.menuIsOpen | async">
   <ul>
     <li
-      *ngFor="let link of links"
+      *ngFor="let link of ui.menuLinks | async"
       routerLinkActive="active"
       [routerLinkActiveOptions]="link.options"
       (click)="onLinkClick(link.url)"

@@ -3,6 +3,8 @@ import { BehaviorSubject } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 
 import { DefinitionsService } from 'src/app/core/services/definitions.service';
+import { LinkDefinition } from 'src/app/core/models/link-definition.interface';
+import { LINKS } from 'src/app/core/data/links.const';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,7 @@ import { DefinitionsService } from 'src/app/core/services/definitions.service';
 export class UiService {
 
   private menuIsOpen$ = new BehaviorSubject<boolean>(false);
+  private menuLinks$ = new BehaviorSubject<LinkDefinition[]>(LINKS)
   private title$ = new BehaviorSubject<string>('CrosswordsBuddy');
   private controlsAreOpen$ = new BehaviorSubject<boolean>(true);
 
@@ -20,6 +23,10 @@ export class UiService {
 
   get menuIsOpen() {
     return this.menuIsOpen$.asObservable();
+  }
+
+  get menuLinks() {
+    return this.menuLinks$.asObservable();
   }
 
   get title() {

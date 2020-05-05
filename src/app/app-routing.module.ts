@@ -4,19 +4,13 @@ import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 
 import { NotFoundPageComponent } from 'src/app/core/pages/not-found/not-found.component';
 
-const DEFAULT_ROUTE = '/recent';
+const DEFAULT_ROUTE = '/search';
 
 let routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
     redirectTo: DEFAULT_ROUTE,
-  },
-  {
-    path: 'recent',
-    loadChildren: () => import('./features/recent/recent.module')
-      .then(m => m.RecentModule),
-    data: { title: 'Recent' },
   },
   {
     path: 'definitions',
