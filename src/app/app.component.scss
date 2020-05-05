@@ -12,6 +12,7 @@ main {
 }
 
 .content {
+  overflow-y: scroll;
   @include pal((
     space: pt1,
     flex: (grow: 1),
