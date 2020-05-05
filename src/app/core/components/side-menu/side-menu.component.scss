@@ -6,6 +6,7 @@ aside {
     position: fixed (0 33% 0 0),
   ));
   box-shadow: 10px 0 10px -5px #ccc;
+  z-index: 2;
 }
 
 ul {

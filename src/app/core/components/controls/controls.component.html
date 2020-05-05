@@ -1,1 +1,40 @@
-<p>controls works!</p>
+<div class="controls">
+  <div class="container">
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter">
+        <ui-button isFullWidth>Orizzontali</ui-button>
+      </div>
+      <div class="filter">
+        <ui-button isFullWidth>Verticali</ui-button>
+      </div>
+    </div>
+
+    <!-- Keyboard -->
+    <div class="keyboard">
+      <ui-button isFullWidth (click)="onButtonClick(1)">1</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(2)">2</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(3)">3</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(4)">4</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(5)">5</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(6)">6</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(7)">7</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(8)">8</ui-button>
+      <ui-button isFullWidth (click)="onButtonClick(9)">9</ui-button>
+
+      <!-- Cancel -->
+      <ui-button isFullWidth color="primary" (click)="onCancel()">
+        &times;
+      </ui-button>
+
+      <ui-button isFullWidth (click)="onButtonClick(0)">0</ui-button>
+
+      <!-- Confirm -->
+      <ui-button isFullWidth color="primary" (click)="onConfirm()">
+        &#10004;
+      </ui-button>
+    </div>
+
+  </div>
+</div>

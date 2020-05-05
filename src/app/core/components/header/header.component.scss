@@ -11,6 +11,10 @@ header {
   ));
 }
 
+h1 {
+  @include pal-space(my1);
+}
+
 .menu-handle {
   font-weight: bold;
   text-transform: uppercase;
