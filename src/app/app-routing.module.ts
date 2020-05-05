@@ -24,10 +24,10 @@ let routes: Routes = [
     data: { title: 'Search' },
   },
   {
-    path: 'load',
-    loadChildren: () => import('./features/load/load.module')
-      .then(m => m.LoadModule),
-    data: { title: 'Load' },
+    path: 'settings',
+    loadChildren: () => import('./features/settings/settings.module')
+      .then(m => m.SettingsModule),
+    data: { title: 'Settings' },
   },
   {
     path: '**',
@@ -49,9 +49,9 @@ if (!environment.production) {
   ];
 }
 
+// https://angular.io/api/router/ExtraOptions
 const routerOptions: ExtraOptions = {
-  // https://angular.io/api/router/ExtraOptions
-  // Enter extra options here...
+  onSameUrlNavigation: 'reload',
 };
 
 @NgModule({
