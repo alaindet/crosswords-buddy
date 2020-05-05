@@ -4,10 +4,22 @@
     <!-- Filters -->
     <div class="filters">
       <div class="filter">
-        <ui-button isFullWidth>Orizzontali</ui-button>
+        <ui-button
+          isFullWidth
+          [isActive]="(ui.direction | async) === Direction.Horizontal"
+          (click)="onFilterClick(Direction.Horizontal)"
+        >
+          Orizzontali
+        </ui-button>
       </div>
       <div class="filter">
-        <ui-button isFullWidth>Verticali</ui-button>
+        <ui-button
+          isFullWidth
+          [isActive]="(ui.direction | async) === Direction.Vertical"
+          (click)="onFilterClick(Direction.Vertical)"
+        >
+          Verticali
+        </ui-button>
       </div>
     </div>
 

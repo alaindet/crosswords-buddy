@@ -25,7 +25,7 @@
 .filter {
   @include pal((
     flex: (grow: 'normal'),
-    space: mx1,
+    space: mx1/2,
   ));
 }
 
