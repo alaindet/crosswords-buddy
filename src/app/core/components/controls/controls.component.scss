@@ -1,14 +1,26 @@
 @import 'src/app/style';
 
 .controls {
-  box-shadow: 0 -10px 10px -5px #ccc;
+  box-shadow: 0 -2px 10px 0 rgba(0, 0, 0, 0.2);
+  position: relative;
   @include pal((
     color: 'gray-light',
-    space: py2,
+  ));
+}
+
+.collapse {
+  box-shadow: 2px -2px 2px 0 rgba(0, 0, 0, 0.2);
+  @include pal((
+    position: ('absolute', (-32px 8px null null)),
+    color: 'gray-light',
+    space: py1 px2,
   ));
 }
 
 .container {
+  @include pal((
+    space: py1,
+  ));
   @include pal-media-query('tablet', 'up') {
     margin: 0 auto;
     max-width: 768px;

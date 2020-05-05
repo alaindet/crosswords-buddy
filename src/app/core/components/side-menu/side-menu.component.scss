@@ -5,7 +5,8 @@ aside {
     color: 'white' 'black',
     position: fixed (0 33% 0 0),
   ));
-  box-shadow: 10px 0 10px -5px #ccc;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.33);
+  // border-right: 1px solid pal-color-get('gray');
   z-index: 2;
 }
 

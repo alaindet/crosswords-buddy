@@ -33,4 +33,8 @@ export class ControlsComponent {
   onConfirm() {
     console.log('onConfirm');
   }
+
+  onControlsCollapse() {
+    this.ui.toggleControls();
+  }
 }

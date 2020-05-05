@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 import { DefinitionsService } from 'src/app/core/services/definitions.service';
 
@@ -10,9 +11,11 @@ export class UiService {
 
   private menuIsOpen$ = new BehaviorSubject<boolean>(false);
   private title$ = new BehaviorSubject<string>('CrosswordsBuddy');
+  private controlsAreOpen$ = new BehaviorSubject<boolean>(true);
 
   constructor(
     private definitionsService: DefinitionsService,
+    private titleService: Title,
   ) {}
 
   get menuIsOpen() {
@@ -25,6 +28,10 @@ export class UiService {
 
   get direction () {
     return this.definitionsService.direction;
+  }
+
+  get controlsAreOpen() {
+    return this.controlsAreOpen$.asObservable();
   }
 
   closeMenu() {
@@ -41,5 +48,10 @@ export class UiService {
 
   setTitle(title: string) {
     this.title$.next(title);
+    this.titleService.setTitle(`CrosswordsBuddy - ${title}`);
+  }
+
+  toggleControls() {
+    this.controlsAreOpen$.next(!this.controlsAreOpen$.value);
   }
 }

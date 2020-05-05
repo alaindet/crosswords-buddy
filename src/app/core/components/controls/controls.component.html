@@ -1,5 +1,14 @@
 <div class="controls">
-  <div class="container">
+
+  <!-- Collapse -->
+  <div class="collapse" (click)="onControlsCollapse()">
+    <ui-icon-chevron
+      [up]="!(ui.controlsAreOpen | async)"
+      [down]="ui.controlsAreOpen | async"
+    ></ui-icon-chevron>
+  </div>
+
+  <div *ngIf="ui.controlsAreOpen | async" class="container">
 
     <!-- Filters -->
     <div class="filters">

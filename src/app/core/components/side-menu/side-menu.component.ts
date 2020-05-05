@@ -24,9 +24,8 @@ export class SideMenuComponent {
   ) {}
 
   links: Link[] = [
-    { url: '/', label: 'Home', options: { exact: true } },
-    { url: '/recent', label: 'Recent', options: { exact: false } },
     { url: '/search', label: 'Search', options: { exact: false } },
+    { url: '/recent', label: 'Recent', options: { exact: false } },
     { url: '/load', label: 'Load', options: { exact: false } },
   ];
 
