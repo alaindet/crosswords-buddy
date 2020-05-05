@@ -10,11 +10,19 @@
     max-width: 1280px;
   }
 
-  .full-width-content {
+  .full-width {
     @include pal((
-      '*': ( space: mxneg2 px2 ),
-      'tablet': ( space: mxneg4 px4 ),
-      'desktop': ( space: mxneg8 px8 ),
+      '*': ( space: mxneg2 ),
+      'tablet': ( space: mxneg4 ),
+      'desktop': ( space: mxneg8 ),
     ));
   }
+
+  // .full-width.padded {
+  //   @include pal((
+  //     '*': ( space: px2 ),
+  //     'tablet': ( space: px4 ),
+  //     'desktop': ( space: px8 ),
+  //   ));
+  // }
 }
