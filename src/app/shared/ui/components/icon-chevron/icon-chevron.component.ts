@@ -1,27 +1,31 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ui-button',
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
+  selector: 'ui-icon-chevron',
+  templateUrl: './icon-chevron.component.html',
+  styleUrls: ['./icon-chevron.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ButtonComponent implements OnInit {
+export class IconChevronComponent implements OnInit {
 
-  @Input() size: 'small' | 'medium' | 'large' = 'medium';
-  @Input() type: 'submit' | 'button' = 'button';
-  @Input() color: 'secondary' | 'primary' = 'secondary';
-  @Input() disabled = false;
-  @Input() noMargin: string | boolean;
-  @Input() isFullWidth: string | boolean;
-  @Input() isActive: string | boolean;
+  @Input() up: string | boolean;
+  @Input() right: string | boolean;
+  @Input() down: string | boolean;
+  @Input() left: string | boolean;
+  @Input() color: string;
 
   ngOnInit() {
     this.processBooleanInputs([
-      'noMargin',
-      'isFullWidth',
-      'isActive',
+      'up',
+      'right',
+      'down',
+      'left',
     ]);
+
+    console.log('up', this.up);
+    console.log('right', this.right);
+    console.log('down', this.down);
+    console.log('left', this.left);
   }
 
   // TODO: Abstract away
