@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { UiService } from 'src/app/core/services/ui.service';
-import { DefinitionsService } from 'src/app/core/services/definitions.service';
+import { CluesService } from 'src/app/core/services/clues.service';
 import { Direction } from 'src/app/core/models/direction.enum';
 
 @Component({
@@ -15,11 +15,11 @@ export class ControlsComponent {
 
   constructor(
     public ui: UiService,
-    private definitionsService: DefinitionsService,
+    private cluesService: CluesService,
   ) {}
 
   onFilterClick(dir: Direction) {
-    this.definitionsService.setDirection(dir);
+    this.cluesService.setDirection(dir);
   }
 
   onButtonClick(index: number) {

@@ -1,7 +1,7 @@
 import { Direction } from 'src/app/core/models/direction.enum';
-import { DefinitionsMap } from 'src/app/core/models/definitions-map.interface';
+import { CluesMap } from 'src/app/core/models/clues-map.interface';
 
-const DEMO: DefinitionsMap = {
+const DEMO: CluesMap = {
 
   [Direction.Horizontal]: {
     1: 'First horizontal definition',

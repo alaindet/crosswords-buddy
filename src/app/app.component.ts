@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 
 import { UiService } from 'src/app/core/services/ui.service';
 import { AlertsService } from 'src/app/core/services/alerts.service';
-import { DefinitionsService } from 'src/app/core/services/definitions.service';
+import { CluesService } from 'src/app/core/services/clues.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     public ui: UiService,
     private alertsService: AlertsService,
-    private definitionsService: DefinitionsService,
+    private cluesService: CluesService,
     private router: Router,
   ) {}
 
@@ -29,7 +29,8 @@ export class AppComponent implements OnInit, OnDestroy {
       this.routerEventsObserver.bind(this)
     );
 
-    this.definitionsService.definitions.subscribe(console.log);
+    // TODO
+    this.cluesService.clues.subscribe(console.log);
   }
 
   ngOnDestroy() {

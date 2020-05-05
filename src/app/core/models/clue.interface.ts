@@ -1,6 +1,6 @@
 import { Direction } from './direction.enum';
 
-export interface Definition {
+export interface Clue {
   id: number;
   definition: string;
   direction: Direction;

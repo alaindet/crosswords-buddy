@@ -2,7 +2,7 @@ import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AlertsService } from 'src/app/core/services/alerts.service';
-import { DefinitionsService } from 'src/app/core/services/definitions.service';
+import { CluesService } from 'src/app/core/services/clues.service';
 import { UiService } from 'src/app/core/services/ui.service';
 import DEMO from 'src/app/core/data/demo.const';
 
@@ -16,7 +16,7 @@ export class SettingsPageComponent implements OnInit {
   constructor(
     private ui: UiService,
     private alertsService: AlertsService,
-    private definitionsService: DefinitionsService,
+    private cluesService: CluesService,
     private route: ActivatedRoute,
     private router: Router,
   ) {}
@@ -30,11 +30,8 @@ export class SettingsPageComponent implements OnInit {
   }
 
   onLoadDemoData() {
-    this.definitionsService.setDefinitions(DEMO);
-    this.alertsService.setSuccessAlert(
-      'Success!',
-      'You loaded the demo data',
-    );
+    this.cluesService.setClues(DEMO);
+    this.alertsService.setSuccessAlert('Success!', 'You loaded the demo data');
     this.router.navigate(['/']);
   }
 }

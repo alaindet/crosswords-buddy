@@ -1,10 +1,9 @@
-import { Direction } from './direction.enum';
-import { Definition } from './definition.interface';
-import { DefinitionsMap } from './definitions-map.interface';
-import { SolvedDefinitionsMap } from './solved-definitions-map.interface';
+import { Clue } from './clue.interface';
+import { CluesMap } from './clues-map.interface';
+import { SolvedCluesMap } from './solved-clues-map';
 
 export interface State {
-  definitions: DefinitionsMap;
-  recent: Definition[];
-  solved: SolvedDefinitionsMap;
+  clues: CluesMap;
+  solvedClues: SolvedCluesMap;
+  recentSearches: Clue[];
 }

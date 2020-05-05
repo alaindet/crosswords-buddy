@@ -1,1 +1,18 @@
-<p>search works!</p>
+<ng-container *ngIf="ui.loaded | async; else loading">
+
+  <!-- Recent -->
+  <ng-container *ngIf="ui.recentSearchesCount | async as count; else noRecent">
+    <h2>Recent searches ({{ count }})</h2>
+  </ng-container>
+
+
+</ng-container>
+
+<ng-template #loading>
+  Loading...
+</ng-template>
+
+<ng-template #noRecent>
+  <h2>No recent searches to show</h2>
+  <p>Select a direction <em>(Horizontals, Verticals)</em>, then start typing on the keyboard below to perform a search</p>
+</ng-template>

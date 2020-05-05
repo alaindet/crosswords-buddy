@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 
 import { AlertsService } from 'src/app/core/services/alerts.service';
-import { DefinitionsService } from 'src/app/core/services/definitions.service';
+import { CluesService } from 'src/app/core/services/clues.service';
 import { LinkDefinition } from 'src/app/core/models/link-definition.interface';
 import LINKS from 'src/app/core/data/links.const';
 
@@ -20,12 +21,18 @@ export class UiService {
 
   constructor(
     private titleService: Title,
-    private definitionsService: DefinitionsService,
+    private cluesService: CluesService,
     private alertsService: AlertsService,
   ) {}
 
   get loading() {
     return this.loading$.asObservable();
+  }
+
+  get loaded() {
+    return this.loading$.asObservable().pipe(
+      map(loading => !loading)
+    );
   }
 
   get menuIsOpen() {
@@ -41,7 +48,15 @@ export class UiService {
   }
 
   get direction () {
-    return this.definitionsService.direction;
+    return this.cluesService.direction;
+  }
+
+  get recentSearches() {
+    return this.cluesService.recentSearches;
+  }
+
+  get recentSearchesCount() {
+    return this.cluesService.recentSearches.pipe(map(items => items.length));
   }
 
   get controlsAreOpen() {

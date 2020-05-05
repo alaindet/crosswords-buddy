@@ -1,6 +1,6 @@
 import { Direction } from './direction.enum';
 
-export interface SolvedDefinitionsMap {
+export interface SolvedCluesMap {
   [Direction.Horizontal]: {
     [id: number]: boolean;
   }

@@ -1,6 +1,6 @@
 import { Direction } from 'src/app/core/models/direction.enum';
 
-export interface DefinitionsMap {
+export interface CluesMap {
   [Direction.Horizontal]: {
     [id: number]: string;
   };
