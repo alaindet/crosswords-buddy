@@ -4,11 +4,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { TestsRoutingModule } from './test-routing.module';
 import { TestsPageComponent } from './pages/tests/tests.component';
 import { TestButtonsComponent } from './pages/buttons/buttons.component';
+import { TestAlertsComponent } from './pages/alerts/alerts.component';
 
 @NgModule({
   declarations: [
     TestsPageComponent,
-    TestButtonsComponent
+    TestButtonsComponent,
+    TestAlertsComponent,
   ],
   imports: [
     SharedModule,
