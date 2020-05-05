@@ -1,10 +1,21 @@
-<app-header></app-header>
-<app-side-menu></app-side-menu>
-<div class="container content">
-  <router-outlet></router-outlet>
-</div>
-<app-controls></app-controls>
+<main>
 
+  <!-- Header -->
+  <app-header></app-header>
+
+  <!-- Pages -->
+  <div class="container content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Keyboard -->
+  <app-controls></app-controls>
+</main>
+
+<!-- Off-canvas menu -->
+<app-side-menu></app-side-menu>
+
+<!-- Alert -->
 <ui-alert
   *ngIf="(ui.alert | async) as alert"
   [title]="alert.title"

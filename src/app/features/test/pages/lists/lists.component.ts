@@ -4,22 +4,16 @@ import { ActivatedRoute } from '@angular/router';
 import { UiService } from 'src/app/core/services/ui.service';
 
 @Component({
-  templateUrl: './tests.component.html',
-  styleUrls: ['./tests.component.scss'],
+  templateUrl: './lists.component.html',
+  styleUrls: ['./lists.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TestsPageComponent implements OnInit {
+export class TestListsComponent implements OnInit {
 
   constructor(
     private ui: UiService,
     private route: ActivatedRoute,
-  ) {}
-
-  links: string[] = [
-    '/test/alerts',
-    '/test/buttons',
-    '/test/lists',
-  ];
+  ) { }
 
   ngOnInit() {
     this.ui.setTitle(this.route.snapshot.data.title);

@@ -1,0 +1,31 @@
+@import 'src/app/style';
+
+:host {
+  @include pal((
+    flex: (
+      dir: column,
+      cross-axis: stretch,
+    )
+  ));
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  ::ng-deep li {
+    font-size: 1.35rem;
+    @include pal((
+      space: py1 px2,
+    ));
+  }
+
+  ::ng-deep li:nth-child(even) {
+    @include pal-color('gray-light');
+  }
+
+  ::ng-deep li:nth-child(odd) {
+    @include pal-color('white');
+  }
+}

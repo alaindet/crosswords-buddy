@@ -40,11 +40,10 @@ button {
 button:focus.is-active,
 button:active.is-active,
 .is-active {
-  border: 2px solid pal-color-get('green');
-}
-
-.is-active.color-secondary {
-  @include pal-color('gray-light');
+  @include pal((
+    border: 2px solid pal-color-get('green'),
+    color: 'white',
+  ));
 }
 
 // Size

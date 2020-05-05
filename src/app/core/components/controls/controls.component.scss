@@ -30,7 +30,7 @@
 .filters {
   @include pal((
     flex: (main-axis: around),
-    space: mb2,
+    space: mb1,
   ));
 }
 

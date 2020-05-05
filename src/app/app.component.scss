@@ -1,16 +1,19 @@
 @import 'src/app/style';
 
-:host {
+main {
   @include pal((
-    size: w-screen h-screen,
+    size: h-screen,
     flex: (
       dir: column,
       main-axis: between,
       cross-axis: stretch,
-    ),
+    )
   ));
 }
 
 .content {
-  overflow-y: scroll;
+  @include pal((
+    space: pt1,
+    flex: (grow: 1),
+  ));
 }
