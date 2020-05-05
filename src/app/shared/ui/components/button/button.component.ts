@@ -14,11 +14,13 @@ export class ButtonComponent implements OnInit {
   @Input() disabled = false;
   @Input() noMargin: string | boolean;
   @Input() isFullWidth: string | boolean;
+  @Input() isActive: string | boolean;
 
   ngOnInit() {
     this.processBooleanInputs([
       'noMargin',
       'isFullWidth',
+      'isActive',
     ]);
   }
 
