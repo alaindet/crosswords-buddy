@@ -2,15 +2,32 @@
 
 .chevron {
   border: solid black;
-  border-width: 0 4px 4px 0;
+  border-width: 0 3px 3px 0;
   display: inline-block;
-  padding: 4px;
-  margin: 2px;
+  padding: 3px;
+  margin: 3px;
   position: relative;
   transform-origin: center;
 }
 
-.up { transform: rotate(-135deg); bottom: -6px; }
-.right { transform: rotate(-45deg); bottom: -4px; }
-.down { transform: rotate(45deg); bottom: -1px; }
-.left { transform: rotate(135deg); bottom: -4px; }
+.up {
+  transform: rotate(-135deg);
+  bottom: -6px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  bottom: -2px;
+  margin-left: 4px;
+  margin-right: 8px;
+}
+
+.down {
+  transform: rotate(45deg);
+  bottom: -1px;
+}
+
+.left {
+  transform: rotate(135deg);
+  bottom: -4px;
+}

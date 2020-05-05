@@ -1,6 +1,10 @@
 <header>
   <div class="container">
-    <h1>{{ ui.title | async }}</h1>
+    <div class="breadcrumbs">
+      <div class="crumb">Crosswords Buddy</div>
+      <ui-icon-chevron right></ui-icon-chevron>
+      <div class="crumb">{{ ui.title | async }}</div>
+    </div>
     <div class="menu-handle" (click)="onToggleMenu()">
       {{ (ui.menuIsOpen | async) ? 'Close' : 'Menu' }}
     </div>

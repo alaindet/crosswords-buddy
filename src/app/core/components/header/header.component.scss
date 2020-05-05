@@ -5,14 +5,20 @@ header {
 }
 
 .container {
+  position: relative;
   @include pal-flex((
     main-axis: between,
     cross-axis: center,
   ));
 }
 
-h1 {
-  @include pal-space(my1);
+.breadcrumbs {
+  font-size: 1.2rem;
+  font-style: italic;
+  @include pal((
+    flex: ( cross-axis: center ),
+    space: py2,
+  ));
 }
 
 .menu-handle {
