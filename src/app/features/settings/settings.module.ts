@@ -2,22 +2,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { LoadPageComponent } from './pages/load/load.component';
+import { SettingsPageComponent } from './pages/settings/settings.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LoadPageComponent,
+    component: SettingsPageComponent,
   }
 ];
 
 @NgModule({
   declarations: [
-    LoadPageComponent,
+    SettingsPageComponent,
   ],
   imports: [
     SharedModule,
     RouterModule.forChild(routes),
   ]
 })
-export class LoadModule {}
+export class SettingsModule {}

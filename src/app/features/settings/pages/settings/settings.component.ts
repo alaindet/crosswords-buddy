@@ -7,11 +7,11 @@ import { UiService } from 'src/app/core/services/ui.service';
 import DEMO from 'src/app/core/data/demo.const';
 
 @Component({
-  templateUrl: './load.component.html',
-  styleUrls: ['./load.component.scss'],
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoadPageComponent implements OnInit {
+export class SettingsPageComponent implements OnInit {
 
   constructor(
     private ui: UiService,

@@ -41,7 +41,7 @@ export class DefinitionsService {
     this.direction$.next(dir);
   }
 
-  setDefinitions(definitions: Definitions) {
+  setDefinitions(definitions: DefinitionsMap) {
     this.definitions$.next(definitions);
   }
 

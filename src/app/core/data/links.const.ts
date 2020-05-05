@@ -3,7 +3,7 @@ import { LinkDefinition } from 'src/app/core/models/link-definition.interface';
 
 const LINKS: LinkDefinition[] = [
   { url: '/search', label: 'Search', options: { exact: false } },
-  { url: '/load', label: 'Load', options: { exact: false } },
+  { url: '/settings', label: 'Settings', options: { exact: false } },
 ];
 
 if (!environment.production) {
