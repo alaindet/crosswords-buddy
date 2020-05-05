@@ -1,0 +1,10 @@
+<div
+  class="alert"
+  [class.success]="type === AlertType.Success"
+  [class.error]="type === AlertType.Error"
+  (click)="onDismiss()"
+>
+  <h2 class="title">{{ title }}</h2>
+  <span class="message">{{ message }}</span>
+  <span class="dismiss">&times;</span>
+</div>

@@ -1,0 +1,34 @@
+@import 'src/app/style';
+
+:host {
+  z-index: 2;
+  @include pal((
+    position: fixed (2 2 null 2),
+  ));
+}
+
+.alert {
+  @include pal((
+    space: p2,
+  ));
+}
+
+.success {
+  @include pal-color('green');
+}
+.error {
+  @include pal-color('red');
+}
+
+.title {
+  @include pal-space(mt0 mb1);
+}
+
+.message {
+  @include pal-space(mb2);
+}
+
+.dismiss {
+  font-size: pal-get('units.4');
+  @include pal-position(absolute (1 2 null null));
+}
