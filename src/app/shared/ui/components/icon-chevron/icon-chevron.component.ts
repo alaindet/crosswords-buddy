@@ -21,11 +21,6 @@ export class IconChevronComponent implements OnInit {
       'down',
       'left',
     ]);
-
-    console.log('up', this.up);
-    console.log('right', this.right);
-    console.log('down', this.down);
-    console.log('left', this.left);
   }
 
   // TODO: Abstract away

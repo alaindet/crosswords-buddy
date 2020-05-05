@@ -3,8 +3,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { AlertsService } from 'src/app/core/services/alerts.service';
 import { UiService } from 'src/app/core/services/ui.service';
+import { AlertsService } from 'src/app/core/services/alerts.service';
+import { DefinitionsService } from 'src/app/core/services/definitions.service';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +19,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     public ui: UiService,
+    private alertsService: AlertsService,
+    private definitionsService: DefinitionsService,
     private router: Router,
-    private alerts: AlertsService,
   ) {}
 
   ngOnInit() {
@@ -27,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.routerEventsObserver.bind(this)
     );
 
-    // this.alerts.setErrorAlert('Hello World', 'Something went awesomely well');
+    this.definitionsService.definitions.subscribe(console.log);
   }
 
   ngOnDestroy() {
@@ -37,7 +39,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   onAlertDismiss() {
-    this.alerts.clearAlert();
+    this.alertsService.clearAlert();
   }
 
   private routerEventsObserver(event: RouterEvent) {
