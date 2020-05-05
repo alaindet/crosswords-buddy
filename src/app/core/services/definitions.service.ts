@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { Direction } from 'src/app/core/models/direction.enum';
 import { Definition } from 'src/app/core/models/definition.interface';
@@ -14,7 +14,7 @@ export class DefinitionsService {
   RECENT_ENTRIES_LIMIT = 10;
 
   private direction$ = new BehaviorSubject<Direction>(Direction.Horizontal);
-  private definitions$ = new Subject<DefinitionsMap>();
+  private definitions$ = new BehaviorSubject<DefinitionsMap | null>(null);
   private recentEntries$ = new BehaviorSubject<Definition[]>([]);
   private solvedEntries$ = new BehaviorSubject<SolvedDefinitionsMap>({
     [Direction.Horizontal]: {},

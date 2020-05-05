@@ -19,6 +19,9 @@
 .error {
   @include pal-color('red');
 }
+.info {
+  @include pal-color('blue-light');
+}
 
 .title {
   @include pal-space(mt0 mb1);

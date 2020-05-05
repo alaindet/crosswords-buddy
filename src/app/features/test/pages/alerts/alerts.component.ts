@@ -28,4 +28,8 @@ export class TestAlertsComponent implements OnInit {
   onShowErrorAlert() {
     this.alerts.setErrorAlert('Error!', 'Something nasty happened');
   }
+
+  onShowInfoAlert() {
+    this.alerts.setInfoAlert('Info!', 'Something neutral happened');
+  }
 }

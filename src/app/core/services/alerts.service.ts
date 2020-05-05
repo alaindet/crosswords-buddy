@@ -14,6 +14,14 @@ export class AlertsService {
     return this.alert$.asObservable();
   }
 
+  setInfoAlert(title: string, message?: string) {
+    this.alert$.next({
+      title: title,
+      message: message ?? null,
+      type: AlertType.Info,
+    });
+  }
+
   setSuccessAlert(title: string, message?: string) {
     this.alert$.next({
       title: title,

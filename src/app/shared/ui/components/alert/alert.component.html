@@ -2,6 +2,7 @@
   class="alert"
   [class.success]="type === AlertType.Success"
   [class.error]="type === AlertType.Error"
+  [class.info]="type === AlertType.Info"
   (click)="onDismiss()"
 >
   <h2 class="title">{{ title }}</h2>
