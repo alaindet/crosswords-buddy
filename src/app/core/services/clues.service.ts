@@ -13,17 +13,12 @@ export class CluesService {
 
   RECENT_ENTRIES_LIMIT = 10;
 
-  private direction$ = new BehaviorSubject<Direction>(Direction.Horizontal);
   private clues$ = new BehaviorSubject<CluesMap | null>(null);
   private recentSearches$ = new BehaviorSubject<Clue[]>([]);
   private solvedClues$ = new BehaviorSubject<SolvedCluesMap>({
     [Direction.Horizontal]: {},
     [Direction.Vertical]: {},
   });
-
-  get direction() {
-    return this.direction$.asObservable();
-  }
 
   get clues() {
     return this.clues$.asObservable();
@@ -35,10 +30,6 @@ export class CluesService {
 
   get solvedClues() {
     return this.solvedClues$.asObservable();
-  }
-
-  setDirection(dir: Direction) {
-    this.direction$.next(dir);
   }
 
   setClues(clues: CluesMap) {

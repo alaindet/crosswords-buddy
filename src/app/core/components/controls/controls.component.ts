@@ -1,37 +1,63 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
-import { UiService } from 'src/app/core/services/ui.service';
-import { CluesService } from 'src/app/core/services/clues.service';
 import { Direction } from 'src/app/core/models/direction.enum';
+import { UiService } from 'src/app/core/services/ui.service';
+import { CluesSearchService } from 'src/app/core/services/clues-search.service';
 
 @Component({
   selector: 'app-controls',
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })
-export class ControlsComponent {
+export class ControlsComponent implements OnInit, OnDestroy {
 
   Direction = Direction;
+  isSearchPage = false;
+  query = 0;
+
+  private subs: { [name: string]: Subscription } = {};
 
   constructor(
     public ui: UiService,
-    private cluesService: CluesService,
+    private searchService: CluesSearchService
   ) {}
 
+  ngOnInit() {
+    this.subs.url = this.ui.url.subscribe(
+      url => this.isSearchPage = url === '/search'
+    );
+  }
+
+  ngOnDestroy() {
+    for (const sub of Object.values(this.subs)) {
+      sub.unsubscribe();
+    }
+  }
+
   onFilterClick(dir: Direction) {
-    this.cluesService.setDirection(dir);
+    this.searchService.setDirection(dir);
   }
 
   onButtonClick(index: number) {
-    console.log('onButtonClick', index);
+    if (!this.isSearchPage) {
+      return;
+    }
+    this.searchService.addToSearchQuery(index);
   }
 
   onCancel() {
-    console.log('onCancel');
+    if (!this.isSearchPage) {
+      return;
+    }
+    this.searchService.clearSearchQuery();
   }
 
   onConfirm() {
-    console.log('onConfirm');
+    if (!this.isSearchPage) {
+      return;
+    }
+    this.searchService.search();
   }
 
   onControlsCollapse() {

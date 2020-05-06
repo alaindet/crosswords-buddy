@@ -28,9 +28,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subs.router = this.router.events.subscribe(
       this.routerEventsObserver.bind(this)
     );
-
-    // TODO
-    this.cluesService.clues.subscribe(console.log);
   }
 
   ngOnDestroy() {
@@ -46,6 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private routerEventsObserver(event: RouterEvent) {
     if (event instanceof NavigationEnd) {
       this.ui.closeMenu();
+      this.ui.setUrl(this.router.url);
       return;
     }
   }

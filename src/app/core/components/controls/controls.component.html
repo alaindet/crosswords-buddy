@@ -15,7 +15,7 @@
       <div class="filter">
         <ui-button
           isFullWidth
-          [isActive]="(ui.direction | async) === Direction.Horizontal"
+          [isActive]="(ui.searchDirection | async) === Direction.Horizontal"
           (click)="onFilterClick(Direction.Horizontal)"
         >
           Horizontals
@@ -24,7 +24,7 @@
       <div class="filter">
         <ui-button
           isFullWidth
-          [isActive]="(ui.direction | async) === Direction.Vertical"
+          [isActive]="(ui.searchDirection | async) === Direction.Vertical"
           (click)="onFilterClick(Direction.Vertical)"
         >
           Verticals

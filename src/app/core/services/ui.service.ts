@@ -5,6 +5,7 @@ import { Title } from '@angular/platform-browser';
 
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
+import { CluesSearchService } from 'src/app/core/services/clues-search.service';
 import { LinkDefinition } from 'src/app/core/models/link-definition.interface';
 import LINKS from 'src/app/core/data/links.const';
 
@@ -18,21 +19,41 @@ export class UiService {
   private menuLinks$ = new BehaviorSubject<LinkDefinition[]>(LINKS)
   private title$ = new BehaviorSubject<string>('CrosswordsBuddy');
   private controlsAreOpen$ = new BehaviorSubject<boolean>(true);
+  private url$ = new BehaviorSubject<string>('');
 
   constructor(
     private titleService: Title,
     private cluesService: CluesService,
+    private cluesSearchService: CluesSearchService,
     private alertsService: AlertsService,
   ) {}
+
+  get searchQuery() {
+    return this.cluesSearchService.searchQuery;
+  }
+
+  get searchResults() {
+    return this.cluesSearchService.searchResults;
+  }
+
+  get searchDirection() {
+    return this.cluesSearchService.searchDirection;
+  }
+
+  get url() {
+    return this.url$.asObservable();
+  }
 
   get loading() {
     return this.loading$.asObservable();
   }
 
   get loaded() {
-    return this.loading$.asObservable().pipe(
-      map(loading => !loading)
-    );
+    return this.loading$.asObservable().pipe(map(loading => !loading));
+  }
+
+  get areCluesLoaded() {
+    return this.cluesService.clues.pipe(map(clues => !!clues));
   }
 
   get menuIsOpen() {
@@ -45,10 +66,6 @@ export class UiService {
 
   get title() {
     return this.title$.asObservable();
-  }
-
-  get direction () {
-    return this.cluesService.direction;
   }
 
   get recentSearches() {
@@ -65,6 +82,10 @@ export class UiService {
 
   get alert() {
     return this.alertsService.alert;
+  }
+
+  setUrl(url: string) {
+    this.url$.next(url);
   }
 
   isLoading() {

@@ -4,16 +4,18 @@ import { CluesMap } from 'src/app/core/models/clues-map.interface';
 const DEMO: CluesMap = {
 
   [Direction.Horizontal]: {
-    1: 'First horizontal definition',
-    2: 'Second horizontal definition',
-    3: 'Third horizontal definition',
+    1: 'First horizontal clue',
+    2: 'Second horizontal clue',
+    3: 'Third horizontal clue',
+    11: 'Eleventh horizontal clue',
   },
 
   [Direction.Vertical]: {
-    1: 'First vertical definition',
-    2: 'Second vertical definition',
-    3: 'Third vertical definition',
-    4: 'Fourth vertical definition',
+    1: 'First vertical clue',
+    2: 'Second vertical clue',
+    3: 'Third vertical clue',
+    4: 'Fourth vertical clue',
+    22: 'Twenty-second vertical clue',
   }
 
 };
