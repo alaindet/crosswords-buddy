@@ -37,6 +37,9 @@ export class ControlsComponent implements OnInit, OnDestroy {
 
   onFilterClick(dir: Direction) {
     this.searchService.setDirection(dir);
+    if (this.isSearchPage) {
+      this.searchService.search();
+    }
   }
 
   onButtonClick(index: number) {
@@ -44,6 +47,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
       return;
     }
     this.searchService.addToSearchQuery(index);
+    this.searchService.search();
   }
 
   onCancel() {

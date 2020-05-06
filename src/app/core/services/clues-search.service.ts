@@ -4,6 +4,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { Direction } from 'src/app/core/models/direction.enum';
 import { Clue } from 'src/app/core/models/clue.interface';
 import { CluesMap } from 'src/app/core/models/clues-map.interface';
+import { UiService } from 'src/app/core/services/ui.service';
 import { CluesService } from './clues.service';
 
 @Injectable({
@@ -40,12 +41,10 @@ export class CluesSearchService implements OnDestroy {
 
   setDirection(dir: Direction) {
     this.direction$.next(dir);
-    this.search();
   }
 
   addToSearchQuery(digit: number) {
     this.query$.next(this.query$.value * 10 + digit);
-    this.search();
   }
 
   removeFromSearchQuery() {
