@@ -1,7 +1,7 @@
 <header>
   <div class="container">
     <div class="breadcrumbs">
-      <div class="crumb">
+      <a routerLink="/">
 
         <!-- Logo -->
         <span class="logo">
@@ -9,9 +9,9 @@
           <span class="logo-right">Buddy</span>
         </span>
 
-      </div>
+      </a>
       <ui-icon-chevron right></ui-icon-chevron>
-      <div class="crumb">{{ ui.title | async }}</div>
+      <span>{{ ui.title | async }}</span>
     </div>
     <div class="menu-handle" (click)="onToggleMenu()">
       {{ (ui.menuIsOpen | async) ? 'Close' : 'Menu' }}
