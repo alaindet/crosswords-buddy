@@ -7,7 +7,7 @@ import { CluesService } from 'src/app/core/services/clues.service';
 })
 export class StoreService {
 
-  APP_NAME = 'CrossWordsBuddy';
+  APP_NAME = 'CrossWords Buddy';
 
   constructor(
     private cluesService: CluesService,

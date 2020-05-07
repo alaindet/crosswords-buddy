@@ -17,7 +17,7 @@ export class UiService {
   private loading$ = new BehaviorSubject<boolean>(false);
   private menuIsOpen$ = new BehaviorSubject<boolean>(false);
   private menuLinks$ = new BehaviorSubject<LinkDefinition[]>(LINKS)
-  private title$ = new BehaviorSubject<string>('CrosswordsBuddy');
+  private title$ = new BehaviorSubject<string>('Crosswords Buddy');
   private controlsAreOpen$ = new BehaviorSubject<boolean>(true);
   private url$ = new BehaviorSubject<string>('');
 
@@ -110,7 +110,7 @@ export class UiService {
 
   setTitle(title: string) {
     this.title$.next(title);
-    this.titleService.setTitle(`CrosswordsBuddy - ${title}`);
+    this.titleService.setTitle(`Crosswords Buddy - ${title}`);
   }
 
   toggleControls() {
