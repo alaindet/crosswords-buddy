@@ -4,7 +4,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import { Direction } from 'src/app/core/models/direction.enum';
 import { Clue } from 'src/app/core/models/clue.interface';
 import { CluesMap } from 'src/app/core/models/clues-map.interface';
-import { UiService } from 'src/app/core/services/ui.service';
+import { UtilsService } from './utils.service';
 import { CluesService } from './clues.service';
 
 @Injectable({
@@ -12,6 +12,7 @@ import { CluesService } from './clues.service';
 })
 export class CluesSearchService implements OnDestroy {
 
+  search: () => void;
   private direction$ = new BehaviorSubject<Direction>(Direction.Horizontal);
   private query$ = new BehaviorSubject<number>(0);
   private results$ = new BehaviorSubject<Clue[]>([]);
@@ -19,7 +20,10 @@ export class CluesSearchService implements OnDestroy {
 
   constructor(
     private cluesService: CluesService,
-  ) {}
+    private utils: UtilsService,
+  ) {
+    this.search = this.utils.debounce(this._search, 200);
+  }
 
   ngOnDestroy() {
     for (const sub of Object.values(this.subs)) {
@@ -55,15 +59,18 @@ export class CluesSearchService implements OnDestroy {
     this.query$.next(0);
   }
 
-  search() {
+  private _search() {
     this.subs.results = this.cluesService.clues.subscribe((clues: CluesMap) => {
 
-      const results = [];
+      const results: Clue[] = [];
       const dir = this.direction$.getValue();
       const query = this.query$.getValue();
+
+      // Extract IDs for given direction
       const sameDirMap = clues[dir];
       const ids = Object.keys(sameDirMap).map(key => +key);
 
+      // Perform filtering
       const matchingIds = ids.filter((key: number): boolean => {
         const digitsDiff = this.countDigits(key) - this.countDigits(query);
         if (digitsDiff < 0) {
@@ -74,6 +81,7 @@ export class CluesSearchService implements OnDestroy {
         return keySlice === query;
       });
 
+      // Transform keys to clues
       for (const id of matchingIds) {
         results.push({
           id: id,
@@ -82,6 +90,7 @@ export class CluesSearchService implements OnDestroy {
         });
       }
 
+      // Update results
       this.results$.next(results);
     });
   }
