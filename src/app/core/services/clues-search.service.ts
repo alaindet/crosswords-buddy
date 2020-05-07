@@ -13,7 +13,7 @@ import { CluesService } from './clues.service';
 export class CluesSearchService implements OnDestroy {
 
   search: () => void;
-  private direction$ = new BehaviorSubject<Direction>(Direction.Horizontal);
+  private direction$ = new BehaviorSubject<Direction>(Direction.Across);
   private query$ = new BehaviorSubject<number>(0);
   private results$ = new BehaviorSubject<Clue[]>([]);
   private subs: { [name: string]: Subscription } = {};

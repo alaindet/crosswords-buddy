@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 
-import { Direction } from 'src/app/core/models/direction.enum';
 import { LinkDefinition } from 'src/app/core/models/link-definition.interface';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';

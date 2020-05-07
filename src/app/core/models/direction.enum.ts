@@ -1,9 +1,9 @@
 export enum Direction {
-  Horizontal = 'horizontal',
-  Vertical = 'vertical',
+  Across = 'across',
+  Down = 'down',
 }
 
 export enum Dir {
-  horizontal = 'H',
-  vertical = 'V',
+  across = 'AX',
+  down = 'DW',
 }

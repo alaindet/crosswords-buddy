@@ -5,6 +5,6 @@ export interface SameDirectionCluesMap {
 }
 
 export interface CluesMap {
-  [Direction.Horizontal]: SameDirectionCluesMap;
-  [Direction.Vertical]: SameDirectionCluesMap;
+  [Direction.Across]: SameDirectionCluesMap;
+  [Direction.Down]: SameDirectionCluesMap;
 }

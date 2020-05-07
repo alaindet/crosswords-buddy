@@ -16,20 +16,22 @@
         <ui-button
           isFullWidth
           color="outline-secondary"
-          [isActive]="(ui.searchDirection | async) === Direction.Horizontal"
-          (click)="onFilterClick(Direction.Horizontal)"
+          [isActive]="(ui.searchDirection | async) === Direction.Across"
+          (click)="onFilterClick(Direction.Across)"
         >
-          Horizontals
+          Across
+          <ui-icon-chevron right></ui-icon-chevron>
         </ui-button>
       </div>
       <div class="filter">
         <ui-button
           isFullWidth
           color="outline-secondary"
-          [isActive]="(ui.searchDirection | async) === Direction.Vertical"
-          (click)="onFilterClick(Direction.Vertical)"
+          [isActive]="(ui.searchDirection | async) === Direction.Down"
+          (click)="onFilterClick(Direction.Down)"
         >
-          Verticals
+          Down
+          <ui-icon-chevron down></ui-icon-chevron>
         </ui-button>
       </div>
     </div>
