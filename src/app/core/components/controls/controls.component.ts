@@ -50,7 +50,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
     this.searchService.search();
   }
 
-  onCancel() {
+  onCancelOne() {
     if (!this.isSearchPage) {
       return;
     }
@@ -58,10 +58,11 @@ export class ControlsComponent implements OnInit, OnDestroy {
     this.searchService.search();
   }
 
-  onConfirm() {
+  onCancelAll() {
     if (!this.isSearchPage) {
       return;
     }
+    this.searchService.clearSearchQuery();
     this.searchService.search();
   }
 

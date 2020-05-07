@@ -44,16 +44,16 @@
       <ui-button isFullWidth (click)="onButtonClick(8)">8</ui-button>
       <ui-button isFullWidth (click)="onButtonClick(9)">9</ui-button>
 
-      <!-- Cancel -->
-      <ui-button isFullWidth color="primary" (click)="onCancel()">
-        &times;
+      <!-- Cancel 1 number -->
+      <ui-button isFullWidth color="outline-secondary" (click)="onCancelOne()">
+        &lArr;
       </ui-button>
 
       <ui-button isFullWidth (click)="onButtonClick(0)">0</ui-button>
 
-      <!-- Confirm -->
-      <ui-button isFullWidth color="primary" (click)="onConfirm()">
-        &#10004;
+      <!-- Cancel all numbers -->
+      <ui-button isFullWidth color="outline-secondary" (click)="onCancelAll()">
+        Del
       </ui-button>
     </div>
 

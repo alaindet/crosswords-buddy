@@ -27,6 +27,8 @@ button {
     '*': (color: 'black' 'white'),
     ':hover': (color: 'gray-dark')
   ));
+
+
 }
 
 .color-secondary {
@@ -36,12 +38,26 @@ button {
   ));
 }
 
+.color-outline-primary {
+  @include pal((
+    '*': (color: 'white' 'black' 'black'),
+    ':hover': (color: 'black' 'white'),
+  ));
+}
+
+.color-outline-secondary {
+  @include pal((
+    '*': (color: 'white' 'gray-dark' 'gray'),
+    ':hover': (color: 'gray'),
+  ));
+}
+
 // Active
 button:focus.is-active,
 button:active.is-active,
 .is-active {
   @include pal((
-    border: 2px solid pal-color-get('green'),
+    border: 2px solid pal-color-get('blue'),
     color: 'white',
   ));
 }

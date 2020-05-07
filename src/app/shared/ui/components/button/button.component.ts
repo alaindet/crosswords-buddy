@@ -1,5 +1,12 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
 
+type ColorInput = (
+  'primary' |
+  'secondary' |
+  'outline-primary' |
+  'outline-secondary'
+);
+
 @Component({
   selector: 'ui-button',
   templateUrl: './button.component.html',
@@ -10,7 +17,7 @@ export class ButtonComponent implements OnInit {
 
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() type: 'submit' | 'button' = 'button';
-  @Input() color: 'secondary' | 'primary' = 'secondary';
+  @Input() color: ColorInput = 'secondary';
   @Input() disabled = false;
   @Input() noMargin: string | boolean;
   @Input() isFullWidth: string | boolean;
