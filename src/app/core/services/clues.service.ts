@@ -9,10 +9,15 @@ import { CluesMap } from 'src/app/core/models/clues-map.interface';
 })
 export class CluesService {
 
-  RECENT_ENTRIES_LIMIT = 10;
+  RECENT_CLUES_LIMIT = 10;
+  LOCAL_STORAGE_KEY = 'CROSSWORDS_BUDDY';
 
   private clues$ = new BehaviorSubject<CluesMap | null>(null);
   private recentClues$ = new BehaviorSubject<Clue[]>([]);
+
+  constructor() {
+    this.fetchClues();
+  }
 
   get clues() {
     return this.clues$.asObservable();
@@ -20,6 +25,17 @@ export class CluesService {
 
   get recentClues() {
     return this.recentClues$.asObservable();
+  }
+
+  storeClues(clues: CluesMap) {
+    window.localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(clues));
+  }
+
+  fetchClues() {
+    const item = window.localStorage.getItem(this.LOCAL_STORAGE_KEY);
+    if (item) {
+      this.setClues(JSON.parse(item))
+    }
   }
 
   setClues(clues: CluesMap) {
@@ -41,7 +57,7 @@ export class CluesService {
     clues = [clue, ...clues];
 
     // Trim oldest clues
-    if (clues.length > this.RECENT_ENTRIES_LIMIT) {
+    if (clues.length > this.RECENT_CLUES_LIMIT) {
       clues = clues.slice(0, -1);
     }
 

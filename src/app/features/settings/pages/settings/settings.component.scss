@@ -10,3 +10,9 @@
     )
   ));
 }
+
+ui-form-file-upload {
+  @include pal((
+    space: mb2,
+  ));
+}

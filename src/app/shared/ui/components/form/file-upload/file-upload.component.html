@@ -1,1 +1,22 @@
-<p>file-upload works!</p>
+<label [for]="uniqueTimestamp" class="file-upload">
+
+  <!-- The actual input -->
+  <input
+    class="file-input"
+    type="file"
+    [id]="uniqueTimestamp"
+    (change)="onFileSelect($event.target.files)"
+  >
+
+  <span class="file-custom" [class.centered]="centered">
+
+    <!-- The button -->
+    <ui-button color="primary" size="large">LOAD</ui-button>
+
+    <!-- The selected file -->
+    <span *ngIf="showSelectedFile" class="file-custom-name">{{ fileName }}</span>
+  </span>
+
+</label>
+
+<p *ngIf="loading">Loading...</p>

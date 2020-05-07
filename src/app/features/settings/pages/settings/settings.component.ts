@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { CluesMap } from 'src/app/core/models/clues-map.interface';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
 import { UiService } from 'src/app/core/services/ui.service';
@@ -36,14 +37,19 @@ export class SettingsPageComponent implements OnInit {
     this.ui.setTitle(this.route.snapshot.data.title);
   }
 
-  onLoad() {
-    console.log('Store data into localStorage');
+  onFileLoad(data: string) {
+    this.load(JSON.parse(data), 'You loaded a new database');
   }
 
   onLoadDemoData() {
-    this.cluesService.setClues(DEMO);
+    this.load(DEMO, 'You loaded the demo database');
+  }
+
+  private load(data: CluesMap, alert: string) {
+    window.localStorage.setItem('CROSSWORDS_BUDDY', JSON.stringify(data));
+    this.cluesService.setClues(data);
     this.cluesService.clearRecentClues();
-    this.alertsService.setSuccessAlert('Success!', 'You loaded the demo data');
-    this.router.navigate(['/']);
+    this.alertsService.setSuccessAlert('Success!', alert);
+    this.router.navigate(['/search']);
   }
 }

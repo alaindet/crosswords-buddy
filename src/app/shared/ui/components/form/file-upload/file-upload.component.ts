@@ -1,120 +1,70 @@
-import { Component, ElementRef, forwardRef, Input, Output, EventEmitter } from '@angular/core';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
-import { UiService } from 'src/app/core/services/ui.service';
-
-type ProcessedFile = File | string;
+import { AlertsService } from 'src/app/core/services/alerts.service';
 
 @Component({
   selector: 'ui-form-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => FormFileUploadComponent),
-    multi: true
-  }]
 })
-export class FormFileUploadComponent implements ControlValueAccessor {
+export class FormFileUploadComponent implements OnInit {
 
   @Input() showSelectedFile = true;
-  @Input() processAs: 'json' | 'file' = 'json';
-  @Output() processed = new EventEmitter<ProcessedFile>();
+  @Input() centered = false;
+  @Output() loaded = new EventEmitter<string>();
 
   loading = false;
   uniqueTimestamp = Date.now();
   file: File | null = null;
   defaultFileName = 'No file selected';
   fileName = this.defaultFileName;
-  onChange: Function;
-  onTouched: Function;
+
+  private fileReader: FileReader;
 
   constructor(
-    private host: ElementRef<HTMLInputElement>,
-    private ui: UiService,
+    private alertsService: AlertsService,
   ) {}
 
-  // ControlValueAccessor
-  // Disallow Angular => Component communication
-  writeValue(value: any) {
-    this.host.nativeElement.value = '';
-    this.file = null;
-  }
-
-  registerOnChange(fn: Function) {
-    this.onChange = fn;
-  }
-
-  registerOnTouched(fn: Function) {
-    this.onTouched = fn;
+  ngOnInit() {
+    this.initFileReader();
   }
 
   onFileSelect(event: FileList) {
 
+    // Extract file
     this.file = event && event.item(0);
 
     // No file selected
     if (!this.file) {
       this.fileName = this.defaultFileName;
-      this.onChange(null);
       return;
     }
 
+    // Read file name
     this.fileName = this.file.name;
 
-    const reader = new FileReader();
-
-    reader.onloadstart = this.onLoadStart.bind(this);
-    reader.onload = this.onLoad.bind(this);
-    reader.onerror = this.onError.bind(this);
-
-    reader.readAsText(this.file, 'UTF-8');
-
-    // var reader = new FileReader();
-    // reader.readAsText(file, "UTF-8");
-    // reader.onload = function (evt) {
-    //   console.log(JSON.parse(evt.target.result));
-    // }
-    // reader.onerror = function (evt) {
-    //   console.log('error reading file');
-    // }
-
-    // // Output the file meta data and the base 64 content of it
-    // const reader = new FileReader();
-
-    // reader.onloadstart = (event: any) => {
-    //   this.loading = true;
-    // }
-
-    // reader.onloadend = (event: any) => {
-    //   if (this.base64ContentOnly) {
-    //     this.base64 = this.extractBase64Content(reader.result);
-    //   } else {
-    //     this.base64 = reader.result;
-    //   }
-    //   this.onChange({
-    //     meta: this.file,
-    //     base64: this.base64
-    //   });
-    //   this.loading = false;
-    // }
-
-    // reader.readAsDataURL(this.file);
+    // Read file as text (triggers file events)
+    this.fileReader.readAsText(this.file, 'UTF-8');
   }
 
-  private onLoadStart(event: any) {
-    this.ui.isLoading();
+  private initFileReader() {
+    this.fileReader = new FileReader();
+    this.fileReader.onloadstart = (event) => this.onLoadStart(event);
+    this.fileReader.onload = (event) => this.onLoad(event);
+    this.fileReader.onerror = (event) => this.onError(event);
+  }
+
+  private onLoadStart(event: Event) {
+    this.loading = true;
   }
 
   private onLoad(event: any) {
-
+    this.loaded.emit(this.fileReader.result as string);
+    this.loading = false;
   }
 
-  private onLoadEnd(event: any) {
-    this.ui.hasLoaded();
-  }
-
-  private onError(event: any) {
-    alert('ERROR: Invalid file');
+  private onError(event: Event) {
+    this.alertsService.setErrorAlert('ERROR', 'Invalid file');
+    console.log('ERROR: Invalid file', event);
   }
 }

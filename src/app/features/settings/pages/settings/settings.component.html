@@ -1,6 +1,8 @@
-<ui-button size="large" color="primary" (click)="onLoad()">
-  LOAD
-</ui-button>
+<ui-form-file-upload
+  [showSelectedFile]="false"
+  [centered]="true"
+  (loaded)="onFileLoad($event)"
+></ui-form-file-upload>
 
 <ui-button (click)="onLoadDemoData()">
   DEMO
