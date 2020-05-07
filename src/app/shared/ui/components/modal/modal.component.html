@@ -9,7 +9,12 @@
 
     <!-- Content -->
     <div class="content">
-      <ng-content></ng-content>
+      <ng-container *ngIf="message; else content">
+        {{ message }}
+      </ng-container>
+      <ng-template #content>
+        <ng-content></ng-content>
+      </ng-template>
     </div>
 
     <!-- Footer -->

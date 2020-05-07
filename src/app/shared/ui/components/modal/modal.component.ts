@@ -9,6 +9,7 @@ export class ModalComponent {
 
   @Input() showIf = true;
   @Input() title: string;
+  @Input() message: string;
   @Input() confirm: string = 'Ok';
 
   @Output() dismissed = new EventEmitter<boolean>();
