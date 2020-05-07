@@ -1,1 +1,27 @@
 @import 'src/app/style';
+
+.search-query {
+  font-size: 2rem;
+}
+
+.result {
+  @include pal((
+    flex: (
+      cross-axis: center,
+    )
+  ));
+}
+
+.result-direction {
+  @include pal((
+    space: px1
+  ));
+}
+
+.result-clue {
+  width: 50%;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

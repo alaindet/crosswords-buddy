@@ -1,8 +1,8 @@
 .container {
   @include pal((
-    '*': ( space: mx2 ),
-    'tablet': ( space: mx4 ),
-    'desktop': ( space: mx8 ),
+    '*': ( space: px2 ),
+    'tablet': ( space: px4 ),
+    'desktop': ( space: px8 ),
   ));
 
   @include pal-media-query(wider, up) {
@@ -16,13 +16,13 @@
       'tablet': ( space: mxneg4 ),
       'desktop': ( space: mxneg8 ),
     ));
-  }
 
-  // .full-width.padded {
-  //   @include pal((
-  //     '*': ( space: px2 ),
-  //     'tablet': ( space: px4 ),
-  //     'desktop': ( space: px8 ),
-  //   ));
-  // }
+    &.padded {
+      @include pal((
+        '*': ( space: px2 ),
+        'tablet': ( space: px4 ),
+        'desktop': ( space: px8 ),
+      ));
+    }
+  }
 }

@@ -17,7 +17,7 @@ ul {
   ::ng-deep li {
     font-size: 1.35rem;
     @include pal((
-      space: py1 px2,
+      space: 'py1,5' px2,
     ));
   }
 

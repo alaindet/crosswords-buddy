@@ -2,13 +2,22 @@
 
   <!-- Search results -->
   <ng-container *ngIf="ui.searchQuery | async as query; else recent">
-    <h2>Searching for... {{ query }}</h2>
+
+    <!-- Search query -->
+    <span class="search-query">
+      <strong>
+        {{ query }}
+      </strong>
+    </span>
+
     <ng-container *ngIf="ui.searchResults | async as results; else noResults">
-      <ui-list>
-        <li *ngFor="let result of results">
-          {{ result.direction }},
-          #{{ result.id }},
-          {{ result.clue }}
+      <ui-list class="full-width padded">
+        <li *ngFor="let result of results" class="result">
+          <span class="result-id">#{{ result.id }}</span>
+          <span class="result-direction">
+            <strong>{{ ui.dirAbbrev[result.direction] }}</strong>
+          </span>
+          <span class="result-clue">{{ result.clue }}</span>
         </li>
       </ui-list>
     </ng-container>

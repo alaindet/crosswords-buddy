@@ -55,6 +55,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
       return;
     }
     this.searchService.removeFromSearchQuery();
+    this.searchService.search();
   }
 
   onConfirm() {

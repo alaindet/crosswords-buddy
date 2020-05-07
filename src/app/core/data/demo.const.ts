@@ -4,7 +4,7 @@ import { CluesMap } from 'src/app/core/models/clues-map.interface';
 const DEMO: CluesMap = {
 
   [Direction.Horizontal]: {
-    1: 'First horizontal clue',
+    1: 'A very lengthy first horizontal clue just to make it overflow',
     2: 'Second horizontal clue',
     3: 'Third horizontal clue',
     11: 'Eleventh horizontal clue',

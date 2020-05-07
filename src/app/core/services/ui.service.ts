@@ -3,16 +3,22 @@ import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Title } from '@angular/platform-browser';
 
+import { Direction } from 'src/app/core/models/direction.enum';
+import { LinkDefinition } from 'src/app/core/models/link-definition.interface';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
 import { CluesSearchService } from 'src/app/core/services/clues-search.service';
-import { LinkDefinition } from 'src/app/core/models/link-definition.interface';
 import LINKS from 'src/app/core/data/links.const';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UiService {
+
+  dirAbbrev = {
+    [Direction.Horizontal]: 'H',
+    [Direction.Vertical]: 'V',
+  };
 
   private loading$ = new BehaviorSubject<boolean>(false);
   private menuIsOpen$ = new BehaviorSubject<boolean>(false);

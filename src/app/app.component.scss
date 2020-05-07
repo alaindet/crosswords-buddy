@@ -12,7 +12,8 @@ main {
 }
 
 .content {
-  overflow-y: scroll;
+  overflow: scroll;
+  // overflow-x: visible;
   @include pal((
     space: pt1,
     flex: (grow: 1),
