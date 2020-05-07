@@ -1,29 +1,11 @@
 @import 'src/app/style';
 
-.search-query {
+.title {
   font-size: 2rem;
-}
-
-.result {
+  font-weight: bold;
   @include pal((
-    flex: (
-      cross-axis: center,
-    )
+    space: mb2,
   ));
-}
-
-.result-direction {
-  @include pal((
-    space: px1
-  ));
-}
-
-.result-clue {
-  width: 75%;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .modal-text {

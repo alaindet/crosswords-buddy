@@ -17,7 +17,7 @@ export class ButtonComponent implements OnInit {
 
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() type: 'submit' | 'button' = 'button';
-  @Input() color: ColorInput = 'secondary';
+  @Input() color: ColorInput = 'outline-secondary';
   @Input() disabled = false;
   @Input() noMargin: string | boolean;
   @Input() isFullWidth: string | boolean;

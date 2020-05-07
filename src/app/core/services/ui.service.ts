@@ -15,11 +15,6 @@ import LINKS from 'src/app/core/data/links.const';
 })
 export class UiService {
 
-  dirAbbrev = {
-    [Direction.Horizontal]: 'H',
-    [Direction.Vertical]: 'V',
-  };
-
   private loading$ = new BehaviorSubject<boolean>(false);
   private menuIsOpen$ = new BehaviorSubject<boolean>(false);
   private menuLinks$ = new BehaviorSubject<LinkDefinition[]>(LINKS)
@@ -74,12 +69,12 @@ export class UiService {
     return this.title$.asObservable();
   }
 
-  get recentSearches() {
-    return this.cluesService.recentSearches;
+  get recentClues() {
+    return this.cluesService.recentClues;
   }
 
-  get recentSearchesCount() {
-    return this.cluesService.recentSearches.pipe(map(items => items.length));
+  get recentCluesCount() {
+    return this.cluesService.recentClues.pipe(map(items => items.length));
   }
 
   get controlsAreOpen() {

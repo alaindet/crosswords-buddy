@@ -1,0 +1,7 @@
+<ui-list>
+  <li *ngFor="let result of results" (click)="onResultSelect(result)">
+    <span class="id">#{{ result.id }}</span>
+    <span class="direction">{{ result.dir }}</span>
+    <span class="clue">{{ result.clue }}</span>
+  </li>
+</ui-list>

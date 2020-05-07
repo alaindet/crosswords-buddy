@@ -2,22 +2,22 @@
 
 button {
   transition: all 0.15s ease-in-out;
-  border-radius: pal-get('units.3/4');
+  // border-radius: pal-get('units.3/4');
   letter-spacing: 2px;
   @include pal((
-    border: 2px solid transparent,
+    border: 3px solid transparent,
     space: m1,
   ));
 
   &:active,
   &:focus {
     outline: none;
-    border: 2px solid pal-color-get('gray');
+    border: 3px solid pal-color-get('gray');
   }
 
   @include app-fast-shadow-hover {
     box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.25);
-    border-radius: pal-get('units.3/4');
+    // border-radius: pal-get('units.3/4');
   }
 }
 
@@ -27,8 +27,6 @@ button {
     '*': (color: 'black' 'white'),
     ':hover': (color: 'gray-dark')
   ));
-
-
 }
 
 .color-secondary {
@@ -57,7 +55,7 @@ button:focus.is-active,
 button:active.is-active,
 .is-active {
   @include pal((
-    border: 2px solid pal-color-get('blue'),
+    border: 3px solid pal-color-get('green'),
     color: 'white',
   ));
 }

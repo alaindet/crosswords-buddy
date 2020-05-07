@@ -25,12 +25,13 @@ export class SettingsPageComponent implements OnInit {
     this.ui.setTitle(this.route.snapshot.data.title);
   }
 
-  onSaveData() {
-    console.log('onSaveData');
+  onLoad() {
+    console.log('Store data into localStorage');
   }
 
   onLoadDemoData() {
     this.cluesService.setClues(DEMO);
+    this.cluesService.clearRecentClues();
     this.alertsService.setSuccessAlert('Success!', 'You loaded the demo data');
     this.router.navigate(['/']);
   }

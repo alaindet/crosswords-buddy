@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SearchPageComponent } from './pages/search/search.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     SearchPageComponent,
+    SearchResultsComponent,
   ],
   imports: [
     SharedModule,

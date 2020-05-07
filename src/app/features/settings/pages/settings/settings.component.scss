@@ -2,10 +2,11 @@
 
 :host {
   @include pal((
+    size: hmin-full,
     flex: (
       dir: column,
       main-axis: center,
-      cross-axis: start,
+      cross-axis: center,
     )
   ));
 }

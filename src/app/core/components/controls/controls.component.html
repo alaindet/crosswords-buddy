@@ -15,6 +15,7 @@
       <div class="filter">
         <ui-button
           isFullWidth
+          color="outline-secondary"
           [isActive]="(ui.searchDirection | async) === Direction.Horizontal"
           (click)="onFilterClick(Direction.Horizontal)"
         >
@@ -24,6 +25,7 @@
       <div class="filter">
         <ui-button
           isFullWidth
+          color="outline-secondary"
           [isActive]="(ui.searchDirection | async) === Direction.Vertical"
           (click)="onFilterClick(Direction.Vertical)"
         >
@@ -34,25 +36,25 @@
 
     <!-- Keyboard -->
     <div class="keyboard">
-      <ui-button isFullWidth (click)="onButtonClick(1)">1</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(2)">2</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(3)">3</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(4)">4</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(5)">5</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(6)">6</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(7)">7</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(8)">8</ui-button>
-      <ui-button isFullWidth (click)="onButtonClick(9)">9</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(1)">1</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(2)">2</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(3)">3</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(4)">4</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(5)">5</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(6)">6</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(7)">7</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(8)">8</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(9)">9</ui-button>
 
       <!-- Cancel 1 number -->
-      <ui-button isFullWidth color="outline-secondary" (click)="onCancelOne()">
+      <ui-button isFullWidth color="outline-primary" (click)="onCancelOne()">
         &lArr;
       </ui-button>
 
-      <ui-button isFullWidth (click)="onButtonClick(0)">0</ui-button>
+      <ui-button isFullWidth color="outline-secondary" (click)="onButtonClick(0)">0</ui-button>
 
       <!-- Cancel all numbers -->
-      <ui-button isFullWidth color="outline-secondary" (click)="onCancelAll()">
+      <ui-button isFullWidth color="outline-primary" (click)="onCancelAll()">
         Del
       </ui-button>
     </div>

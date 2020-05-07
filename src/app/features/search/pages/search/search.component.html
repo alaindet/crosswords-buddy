@@ -4,57 +4,65 @@
   <ng-container *ngIf="ui.searchQuery | async as query; else recent">
 
     <!-- Search query -->
-    <span class="search-query">
-      <strong>
-        {{ query }}
-      </strong>
+    <span class="title">
+      Searching...#{{ query }} {{ Dir[ui.searchDirection | async] }}
     </span>
 
-    <ng-container *ngIf="ui.searchResults | async as results; else noResults">
-      <ui-list class="full-width padded">
-        <li
-          *ngFor="let result of results"
-          class="result"
-          (click)="onResultSelect(result)"
-        >
-          <span class="result-id">#{{ result.id }}</span>
-          <span class="result-direction">
-            <strong>{{ ui.dirAbbrev[result.direction] }}</strong>
-          </span>
-          <span class="result-clue">{{ result.clue }}</span>
-        </li>
-      </ui-list>
+    <!-- Search results list -->
+    <ng-container *ngIf="ui.searchResults | async as results">
+      <app-search-results
+        *ngIf="results.length; else noResults"
+        [results]="results"
+        class="full-width padded"
+        (selected)="onResultSelect($event)"
+      ></app-search-results>
     </ng-container>
   </ng-container>
 
   <!-- Recent searches -->
   <ng-template #recent>
-    <ng-container *ngIf="ui.recentSearchesCount | async as count; else noRecents">
-      <h2>Recent searches ({{ count }})</h2>
-      <p>List of recent searches here...</p>
+    <ng-container *ngIf="ui.recentCluesCount | async as count; else noRecents">
+
+      <!-- Title -->
+      <span class="title">Recent clues</span>
+
+      <!-- List -->
+      <app-search-results
+        *ngIf="ui.searchResults | async as results; else noResults"
+        [results]="ui.recentClues | async"
+        class="full-width padded"
+        (selected)="onResultSelect($event)"
+      ></app-search-results>
+
+      <!-- Help -->
+      <p>
+        Select a direction <em>(Horizontals, Verticals)</em>,
+        then start typing on the keyboard below to perform a search
+      </p>
+
     </ng-container>
   </ng-template>
-
-  <!-- Modal -->
-  <ui-modal
-    *ngIf="modal?.show"
-    [title]="modal.title"
-    [confirm]="modal?.confirm"
-    (dismissed)="modal.show = false"
-    (confirmed)="modal.show = false"
-  >
-    <ng-container
-      [ngTemplateOutlet]="clueRef"
-      [ngTemplateOutletContext]="modal.context"
-    ></ng-container>
-  </ui-modal>
-
 </ng-container>
 
+<!-- Modal -->
+<ui-modal
+  *ngIf="modal?.show"
+  [title]="modal.title"
+  (dismissed)="modal.show = false"
+  (confirmed)="modal.show = false"
+>
+  <ng-container
+    [ngTemplateOutlet]="clueRef"
+    [ngTemplateOutletContext]="modal.context"
+  ></ng-container>
+</ui-modal>
+
+<!-- Loading -->
 <ng-template #loading>
   Loading...
 </ng-template>
 
+<!-- No recent searches -->
 <ng-template #noRecents>
   <h2>No recent searches to show</h2>
   <p>
@@ -63,10 +71,18 @@
   </p>
 </ng-template>
 
+<!-- No resuliting clue -->
 <ng-template #noResults>
-  <p>No clues found</p>
+  <p>
+    No clues found for
+    <strong>
+      #{{ ui.searchQuery | async }}
+      {{ ui.searchDirection | async }}
+    </strong>
+  </p>
 </ng-template>
 
+<!-- Modal content -->
 <ng-template #clueRef let-text="text">
   <span class="modal-text">{{ text }}</span>
 </ng-template>

@@ -4,10 +4,11 @@ import { Subscription } from 'rxjs';
 
 import { Clue } from 'src/app/core/models/clue.interface';
 import { CluesMap } from 'src/app/core/models/clues-map.interface';
+import { Dir } from 'src/app/core/models/direction.enum';
+import { ModalConfig } from 'src/app/shared/ui/components/modal/modal.interface';
 import { UiService } from 'src/app/core/services/ui.service';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
-import { ModalConfig } from 'src/app/shared/ui/components/modal/modal.interface';
 
 @Component({
   templateUrl: './search.component.html',
@@ -17,6 +18,7 @@ import { ModalConfig } from 'src/app/shared/ui/components/modal/modal.interface'
 export class SearchPageComponent implements OnInit, OnDestroy {
 
   modal: ModalConfig;
+  Dir = Dir;
 
   private subs: { [name: string]: Subscription } = {};
 
@@ -42,6 +44,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   }
 
   onResultSelect(clue: Clue) {
+    this.cluesService.addRecentClue(clue);
     this.modal = {
       show: true,
       title: `#${clue.id} ${clue.direction}`,
