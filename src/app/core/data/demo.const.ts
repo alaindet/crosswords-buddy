@@ -4,18 +4,31 @@ import { CluesMap } from 'src/app/core/models/clues-map.interface';
 const DEMO: CluesMap = {
 
   [Direction.Across]: {
-    '1': 'A very lengthy first across clue just to make it overflow',
-    '2': 'Second across clue',
-    '3': 'Third across clue',
-    '11': 'Eleventh across clue',
+    '1': 'Legendary stories',
+    '6': 'Uno',
+    '9': 'Pig\s pad',
+    '12': 'Box',
+    '13': 'Business VIP',
+    '15': 'Church walkway',
+    '16': 'Burst of bad temper',
+    '18': 'California wine valley',
+    '19': 'Make lace',
+    '20': 'Epochs',
+    '24': 'The time past',
   },
 
   [Direction.Down]: {
-    '1': 'First down clue',
-    '2': 'Second down clue',
-    '3': 'Third down clue',
-    '4': 'Fourth down clue',
-    '22': 'Twenty-second down clue',
+    '1': 'Skim over',
+    '2': 'Opera solo',
+    '3': 'Struggle for breath',
+    '4': 'Books of maps',
+    '5': 'Behold',
+    '6': 'Gasoline classification',
+    '7': 'Tidy up',
+    '8': 'Chunk of eternity',
+    '9': 'Military rank',
+    '10':' Faithful',
+    '11': 'Sweet potatoes',
   }
 
 };

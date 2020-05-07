@@ -14,7 +14,7 @@ export class CluesSearchService implements OnDestroy {
 
   search: () => void;
   private direction$ = new BehaviorSubject<Direction>(Direction.Across);
-  private query$ = new BehaviorSubject<number>(0);
+  private query$ = new BehaviorSubject<string>('');
   private results$ = new BehaviorSubject<Clue[]>([]);
   private subs: { [name: string]: Subscription } = {};
 
@@ -48,15 +48,16 @@ export class CluesSearchService implements OnDestroy {
   }
 
   addToSearchQuery(digit: number) {
-    this.query$.next(this.query$.value * 10 + digit);
+    const _digit = '' + digit;
+    this.query$.next(this.query$.value + _digit);
   }
 
   removeFromSearchQuery() {
-    this.query$.next(Math.floor(this.query$.value / 10));
+    this.query$.next(this.query$.value.slice(0, -1));
   }
 
   clearSearchQuery() {
-    this.query$.next(0);
+    this.query$.next('');
   }
 
   private _search() {
@@ -68,18 +69,12 @@ export class CluesSearchService implements OnDestroy {
 
       // Extract IDs for given direction
       const sameDirMap = clues[dir];
-      const ids = Object.keys(sameDirMap).map(key => +key);
+      const ids = Object.keys(sameDirMap);
 
       // Perform filtering
-      const matchingIds = ids.filter((key: number): boolean => {
-        const digitsDiff = this.countDigits(key) - this.countDigits(query);
-        if (digitsDiff < 0) {
-          return false;
-        }
-        const dividend = 10 ** digitsDiff;
-        const keySlice = Math.floor(key / dividend);
-        return keySlice === query;
-      });
+      const matchingIds = ids.filter(
+        (key: string): boolean => key.startsWith(query)
+      );
 
       // Transform keys to clues
       for (const id of matchingIds) {
