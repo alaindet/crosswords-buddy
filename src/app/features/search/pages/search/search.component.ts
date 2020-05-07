@@ -7,6 +7,7 @@ import { CluesMap } from 'src/app/core/models/clues-map.interface';
 import { UiService } from 'src/app/core/services/ui.service';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
+import { ModalConfig } from 'src/app/shared/ui/components/modal/modal.interface';
 
 @Component({
   templateUrl: './search.component.html',
@@ -14,6 +15,8 @@ import { CluesService } from 'src/app/core/services/clues.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchPageComponent implements OnInit, OnDestroy {
+
+  modal: ModalConfig;
 
   private subs: { [name: string]: Subscription } = {};
 
@@ -39,7 +42,14 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   }
 
   onResultSelect(clue: Clue) {
-    alert(clue.clue);
+    this.modal = {
+      show: true,
+      title: `#${clue.id} ${clue.direction}`,
+      confirm: 'Ok',
+      context: {
+        text: clue.clue,
+      }
+    };
   }
 
   private initClues(clues: CluesMap | null) {

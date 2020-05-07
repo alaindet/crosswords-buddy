@@ -35,6 +35,20 @@
     </ng-container>
   </ng-template>
 
+  <!-- Modal -->
+  <ui-modal
+    *ngIf="modal?.show"
+    [title]="modal.title"
+    [confirm]="modal?.confirm"
+    (dismissed)="modal.show = false"
+    (confirmed)="modal.show = false"
+  >
+    <ng-container
+      [ngTemplateOutlet]="clueRef"
+      [ngTemplateOutletContext]="modal.context"
+    ></ng-container>
+  </ui-modal>
+
 </ng-container>
 
 <ng-template #loading>
@@ -51,4 +65,8 @@
 
 <ng-template #noResults>
   <p>No clues found</p>
+</ng-template>
+
+<ng-template #clueRef let-text="text">
+  <span class="modal-text">{{ text }}</span>
 </ng-template>

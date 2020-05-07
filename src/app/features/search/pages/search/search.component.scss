@@ -25,3 +25,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.modal-text {
+  font-size: pal-get('units.2');
+}
