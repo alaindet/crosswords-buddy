@@ -4,7 +4,6 @@ import { BehaviorSubject } from 'rxjs';
 import { Direction } from 'src/app/core/models/direction.enum';
 import { Clue } from 'src/app/core/models/clue.interface';
 import { CluesMap } from 'src/app/core/models/clues-map.interface';
-import { SolvedCluesMap } from 'src/app/core/models/solved-clues-map';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +14,6 @@ export class CluesService {
 
   private clues$ = new BehaviorSubject<CluesMap | null>(null);
   private recentSearches$ = new BehaviorSubject<Clue[]>([]);
-  private solvedClues$ = new BehaviorSubject<SolvedCluesMap>({
-    [Direction.Horizontal]: {},
-    [Direction.Vertical]: {},
-  });
 
   get clues() {
     return this.clues$.asObservable();
@@ -26,10 +21,6 @@ export class CluesService {
 
   get recentSearches() {
     return this.recentSearches$.asObservable();
-  }
-
-  get solvedClues() {
-    return this.solvedClues$.asObservable();
   }
 
   setClues(clues: CluesMap) {
@@ -48,11 +39,5 @@ export class CluesService {
     }
 
     this.recentSearches$.next(clues);
-  }
-
-  addSolvedClue(clue: Clue) {
-    const clues = this.solvedClues$.value;
-    clues[clue.direction][clue.id] = true;
-    this.solvedClues$.next(clues);
   }
 }
