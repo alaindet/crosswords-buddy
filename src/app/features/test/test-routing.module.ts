@@ -5,6 +5,7 @@ import { TestsPageComponent } from './pages/tests/tests.component';
 import { TestAlertsComponent } from './pages/alerts/alerts.component';
 import { TestButtonsComponent } from './pages/buttons/buttons.component';
 import { TestListsComponent } from './pages/lists/lists.component';
+import { TestModalsComponent } from './pages/modals/modals.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
     path: 'lists',
     component: TestListsComponent,
     data: { title: 'Test lists' },
+  },
+  {
+    path: 'modals',
+    component: TestModalsComponent,
+    data: { title: 'Test modals' },
   }
 ];
 

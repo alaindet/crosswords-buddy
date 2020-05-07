@@ -19,6 +19,7 @@ export class TestsPageComponent implements OnInit {
     '/test/alerts',
     '/test/buttons',
     '/test/lists',
+    '/test/modals',
   ];
 
   ngOnInit() {

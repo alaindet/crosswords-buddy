@@ -12,7 +12,11 @@
 
     <ng-container *ngIf="ui.searchResults | async as results; else noResults">
       <ui-list class="full-width padded">
-        <li *ngFor="let result of results" class="result">
+        <li
+          *ngFor="let result of results"
+          class="result"
+          (click)="onResultSelect(result)"
+        >
           <span class="result-id">#{{ result.id }}</span>
           <span class="result-direction">
             <strong>{{ ui.dirAbbrev[result.direction] }}</strong>

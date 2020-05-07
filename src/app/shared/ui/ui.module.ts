@@ -6,6 +6,7 @@ import { IconChevronComponent } from './components/icon-chevron/icon-chevron.com
 import { FormFileUploadComponent } from './components/form/file-upload/file-upload.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { ListComponent } from './components/list/list.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 const components = [
   ButtonComponent,
@@ -13,6 +14,7 @@ const components = [
   FormFileUploadComponent,
   AlertComponent,
   ListComponent,
+  ModalComponent,
 ];
 
 @NgModule({

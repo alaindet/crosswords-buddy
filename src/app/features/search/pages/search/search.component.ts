@@ -2,11 +2,11 @@ import { Component, ChangeDetectionStrategy, OnInit, OnDestroy } from '@angular/
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { Clue } from 'src/app/core/models/clue.interface';
 import { CluesMap } from 'src/app/core/models/clues-map.interface';
 import { UiService } from 'src/app/core/services/ui.service';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
-import { CluesSearchService } from 'src/app/core/services/clues-search.service';
 
 @Component({
   templateUrl: './search.component.html',
@@ -21,7 +21,6 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     public ui: UiService,
     private alertsService: AlertsService,
     private cluesService: CluesService,
-    private cluesSearchService: CluesSearchService,
     private route: ActivatedRoute,
     private router: Router,
   ) {}
@@ -37,6 +36,10 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     for (const sub of Object.values(this.subs)) {
       sub.unsubscribe();
     }
+  }
+
+  onResultSelect(clue: Clue) {
+    alert(clue.clue);
   }
 
   private initClues(clues: CluesMap | null) {

@@ -6,6 +6,7 @@ import { TestsPageComponent } from './pages/tests/tests.component';
 import { TestButtonsComponent } from './pages/buttons/buttons.component';
 import { TestAlertsComponent } from './pages/alerts/alerts.component';
 import { TestListsComponent } from './pages/lists/lists.component';
+import { TestModalsComponent } from './pages/modals/modals.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { TestListsComponent } from './pages/lists/lists.component';
     TestButtonsComponent,
     TestAlertsComponent,
     TestListsComponent,
+    TestModalsComponent,
   ],
   imports: [
     SharedModule,

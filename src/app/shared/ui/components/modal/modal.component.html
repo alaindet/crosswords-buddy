@@ -1,0 +1,23 @@
+<div *ngIf="showIf" class="backdrop" (click)="onDismiss()">
+  <div class="modal" (click)="doNotDismiss($event)">
+
+    <!-- Dismiss icon -->
+    <div class="dismiss" (click)="onDismiss()">&times;</div>
+
+    <!-- Title -->
+    <h2 class="title">{{ title }}</h2>
+
+    <!-- Content -->
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer" *ngIf="confirm">
+      <ui-button color="primary" (click)="onConfirm()">
+        {{ confirm}}
+      </ui-button>
+    </div>
+
+  </div>
+</div>

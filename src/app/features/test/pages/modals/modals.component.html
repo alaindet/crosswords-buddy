@@ -1,0 +1,20 @@
+<ui-button color="primary" size="large" (click)="onShowModal()">
+  Show modal
+</ui-button>
+
+<ui-modal
+  *ngIf="modal?.show"
+  [title]="modal.title"
+  [confirm]="modal?.confirm"
+  (dismissed)="onModalDimiss()"
+  (confirmed)="onModalConfirm()"
+>
+  <ng-container
+    [ngTemplateOutlet]="modal.template"
+    [ngTemplateOutletContext]="modal.context"
+  ></ng-container>
+</ui-modal>
+
+<ng-template #modalContent let-name="name">
+  Hello, my name is {{ name }}
+</ng-template>
