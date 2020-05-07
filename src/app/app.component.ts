@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 
 import { UiService } from 'src/app/core/services/ui.service';
 import { AlertsService } from 'src/app/core/services/alerts.service';
-import { CluesService } from 'src/app/core/services/clues.service';
 
 @Component({
   selector: 'app-root',

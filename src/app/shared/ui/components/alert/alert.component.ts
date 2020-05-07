@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, HostListener } from '@angular/core';
 
 import { AlertType } from './alert.interface';
 
@@ -17,6 +17,8 @@ export class AlertComponent {
   @Input() type: AlertType = AlertType.Success;
 
   @Output() dismissed = new EventEmitter<boolean>();
+  @Output() mouseEntered = new EventEmitter<boolean>();
+  @Output() mouseLeft = new EventEmitter<boolean>();
 
   onDismiss() {
     this.dismissed.emit(true);
