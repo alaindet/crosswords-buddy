@@ -5,7 +5,7 @@
 
     <!-- Search query -->
     <span class="title">
-      {{ ui.searchDirection | async }} #{{ query }}
+      {{ ui.searchDirection | async | titlecase }} #{{ query }}
     </span>
 
     <!-- Search results list -->
@@ -77,8 +77,8 @@
   <p>
     No clues found for
     <strong>
+      {{ ui.searchDirection | async | titlecase }}
       #{{ ui.searchQuery | async }}
-      {{ ui.searchDirection | async }}
     </strong>
   </p>
 </ng-template>

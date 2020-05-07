@@ -2,20 +2,19 @@
 
 main {
   @include pal((
-    size: h-screen,
+    size: hmin-screen h-screen hmax-screen,
     flex: (
       dir: column,
       main-axis: between,
       cross-axis: stretch,
-    )
+    ),
   ));
 }
 
 .content {
   overflow: scroll;
-  // overflow-x: visible;
   @include pal((
     space: pt1,
-    flex: (grow: 1),
+    flex: (grow: 'normal'),
   ));
 }

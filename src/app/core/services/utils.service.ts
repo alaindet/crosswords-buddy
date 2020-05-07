@@ -15,4 +15,9 @@ export class UtilsService {
       timeout = setTimeout(functionCall, delay);
     }
   }
+
+  capitalize(input: string): string {
+    const pattern = /(?: |\-|^)([a-zA-Z])/g;
+    return input.replace(pattern, match => match.toUpperCase());
+  }
 }

@@ -7,6 +7,7 @@ import { CluesMap } from 'src/app/core/models/clues-map.interface';
 import { Dir } from 'src/app/core/models/direction.enum';
 import { ModalConfig } from 'src/app/shared/ui/components/modal/modal.interface';
 import { UiService } from 'src/app/core/services/ui.service';
+import { UtilsService } from 'src/app/core/services/utils.service';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
 
@@ -24,6 +25,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
   constructor(
     public ui: UiService,
+    private utils: UtilsService,
     private alertsService: AlertsService,
     private cluesService: CluesService,
     private route: ActivatedRoute,
@@ -46,7 +48,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
     this.cluesService.addRecentClue(clue);
     this.modal = {
       show: true,
-      title: `#${clue.id} ${clue.direction}`,
+      title: `${this.utils.capitalize(clue.direction)} #${clue.id}`,
       confirm: 'Ok',
       context: {
         text: clue.clue,
