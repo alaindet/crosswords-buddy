@@ -1,41 +1,22 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
 
+import { HasBooleanInputs } from 'src/app/core/models/has-boolean-inputs';
+
 @Component({
   selector: 'ui-icon-chevron',
   templateUrl: './icon-chevron.component.html',
   styleUrls: ['./icon-chevron.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IconChevronComponent implements OnInit {
+export class IconChevronComponent extends HasBooleanInputs implements OnInit {
 
+  @Input() color: string;
   @Input() up: string | boolean;
   @Input() right: string | boolean;
   @Input() down: string | boolean;
   @Input() left: string | boolean;
-  @Input() color: string;
 
   ngOnInit() {
-    this.processBooleanInputs([
-      'up',
-      'right',
-      'down',
-      'left',
-    ]);
-  }
-
-  // TODO: Abstract away
-  private processBooleanInputs(keys: string[]): void {
-    for (const key of keys) {
-
-      // All missing keys are false
-      if (!this.hasOwnProperty(key)) {
-        this[key] = false;
-      }
-
-      // All strings, including '', are true. Boolean already work on their own
-      if (typeof this[key] === 'string') {
-        this[key] = this[key] || this[key] === '';
-      }
-    }
+    this.booleanInputs(['up', 'right', 'down', 'left']);
   }
 }

@@ -7,9 +7,6 @@ import { UiService } from 'src/app/core/services/ui.service';
 import { AlertsService } from 'src/app/core/services/alerts.service';
 import { CluesService } from 'src/app/core/services/clues.service';
 
-// TODO
-import DEMO from 'src/app/core/data/demo.const';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -31,9 +28,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subs.router = this.router.events.subscribe(
       this.routerEventsObserver.bind(this)
     );
-
-    // TODO
-    this.cluesService.setClues(DEMO);
   }
 
   ngOnDestroy() {

@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, OnInit } from '@angular/core';
 
+import { HasBooleanInputs } from 'src/app/core/models/has-boolean-inputs';
+
 type ColorInput = (
   'primary' |
   'secondary' |
@@ -13,7 +15,7 @@ type ColorInput = (
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent extends HasBooleanInputs implements OnInit {
 
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Input() type: 'submit' | 'button' = 'button';
@@ -24,26 +26,6 @@ export class ButtonComponent implements OnInit {
   @Input() isActive: string | boolean;
 
   ngOnInit() {
-    this.processBooleanInputs([
-      'noMargin',
-      'isFullWidth',
-      'isActive',
-    ]);
-  }
-
-  // TODO: Abstract away
-  private processBooleanInputs(keys: string[]): void {
-    for (const key of keys) {
-
-      // All missing keys are false
-      if (!this.hasOwnProperty(key)) {
-        this[key] = false;
-      }
-
-      // All strings, including '', are true. Boolean already work on their own
-      if (typeof this[key] === 'string') {
-        this[key] = this[key] || this[key] === '';
-      }
-    }
+    this.booleanInputs(['noMargin', 'isFullWidth', 'isActive']);
   }
 }
