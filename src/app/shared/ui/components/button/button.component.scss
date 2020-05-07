@@ -21,6 +21,23 @@ button {
   }
 }
 
+%disabled {
+  background-color: pal-color-get('gray-light') !important;
+  color: pal-color-get('gray') !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}
+
+button:disabled,
+button[disabled] {
+  @extend %disabled;
+  &:focus,
+  &:active,
+  &:hover {
+    @extend %disabled;
+  }
+}
+
 // Color
 .color-primary {
   @include pal((

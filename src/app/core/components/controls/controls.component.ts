@@ -10,58 +10,32 @@ import { CluesSearchService } from 'src/app/core/services/clues-search.service';
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })
-export class ControlsComponent implements OnInit, OnDestroy {
+export class ControlsComponent {
 
   Direction = Direction;
-  isSearchPage = false;
   query = 0;
-
-  private subs: { [name: string]: Subscription } = {};
 
   constructor(
     public ui: UiService,
     private searchService: CluesSearchService
   ) {}
 
-  ngOnInit() {
-    this.subs.url = this.ui.url.subscribe(
-      url => this.isSearchPage = url === '/search'
-    );
-  }
-
-  ngOnDestroy() {
-    for (const sub of Object.values(this.subs)) {
-      sub.unsubscribe();
-    }
-  }
-
   onFilterClick(dir: Direction) {
     this.searchService.setDirection(dir);
-    if (this.isSearchPage) {
-      this.searchService.search();
-    }
+    this.searchService.search();
   }
 
   onButtonClick(index: number) {
-    if (!this.isSearchPage) {
-      return;
-    }
     this.searchService.addToSearchQuery(index);
     this.searchService.search();
   }
 
   onCancelOne() {
-    if (!this.isSearchPage) {
-      return;
-    }
     this.searchService.removeFromSearchQuery();
     this.searchService.search();
   }
 
   onCancelAll() {
-    if (!this.isSearchPage) {
-      return;
-    }
     this.searchService.clearSearchQuery();
     this.searchService.search();
   }

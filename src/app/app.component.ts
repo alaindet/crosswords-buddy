@@ -20,7 +20,6 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(
     public ui: UiService,
     private alertsService: AlertsService,
-    private cluesService: CluesService,
     private router: Router,
   ) {}
 

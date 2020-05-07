@@ -9,7 +9,10 @@
   </div>
 
   <!-- Keyboard -->
-  <app-controls></app-controls>
+  <app-controls
+    *ngIf="(ui.url | async) === '/search'"
+  ></app-controls>
+
 </main>
 
 <!-- Off-canvas menu -->

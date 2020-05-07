@@ -1,0 +1,13 @@
+code {
+  @include pal((
+    color: 'gray-light' 'blue-dark',
+  ));
+}
+
+code[block] {
+  white-space: pre;
+  @include pal((
+    display: block,
+    space: my2 p1,
+  ));
+}

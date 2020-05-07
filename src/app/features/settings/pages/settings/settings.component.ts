@@ -13,6 +13,17 @@ import DEMO from 'src/app/core/data/demo.const';
 })
 export class SettingsPageComponent implements OnInit {
 
+  demo = `{
+  "across": {
+    "1": "The first across clue",
+    "2": "The second across clue"
+  },
+  "down": {
+    "1": "The first down clue",
+    "2": "The second down clue"
+  }
+}`;
+
   constructor(
     private ui: UiService,
     private alertsService: AlertsService,

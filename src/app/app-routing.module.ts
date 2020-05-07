@@ -13,11 +13,6 @@ let routes: Routes = [
     redirectTo: DEFAULT_ROUTE,
   },
   {
-    path: 'definitions',
-    loadChildren: () => import('./features/definitions/definitions.module')
-      .then(m => m.DefinitionsModule),
-  },
-  {
     path: 'search',
     loadChildren: () => import('./features/search/search.module')
       .then(m => m.SearchModule),

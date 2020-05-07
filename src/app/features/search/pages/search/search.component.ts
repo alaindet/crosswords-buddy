@@ -33,7 +33,6 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.ui.isLoading();
     this.ui.setTitle(this.route.snapshot.data.title);
-    this.ui.isLoading();
     this.cluesService.clues.subscribe(this.initClues.bind(this));
   }
 
@@ -62,7 +61,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
 
   private checkClues(clues: CluesMap | null) {
     if (!clues) {
-      const message = 'You must load a clues\' database first';
+      const message = 'You must load clues first';
       this.alertsService.setInfoAlert('Info', message);
       this.router.navigate(['/settings']);
     }
