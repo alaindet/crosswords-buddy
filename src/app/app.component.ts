@@ -23,6 +23,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
+    this.adjustViewportHeightUnit();
     this.subs.router = this.router.events.subscribe(
       this.routerEventsObserver.bind(this)
     );
@@ -36,6 +37,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   onAlertDismiss() {
     this.alertsService.clearAlert();
+  }
+
+  private adjustViewportHeightUnit() {
+    // https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
 
   private routerEventsObserver(event: RouterEvent) {
