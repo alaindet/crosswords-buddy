@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "build:serve": "http-server ./dist/crosswords-buddy -p 4210 -o",
+    "build:htaccess": "ng build --prod --baseHref /apps/crosswords-buddy/ && ./dev/deploy-htaccess.sh",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
