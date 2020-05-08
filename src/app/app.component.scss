@@ -16,9 +16,13 @@ main {
 }
 
 .content {
-  overflow: scroll;
+  overflow-y: scroll;
   @include pal((
     space: pt1,
     flex: (grow: 'normal'),
   ));
+}
+
+.content::-webkit-scrollbar {
+  display: none;
 }

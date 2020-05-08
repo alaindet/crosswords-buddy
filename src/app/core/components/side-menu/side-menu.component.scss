@@ -1,12 +1,13 @@
 @import 'src/app/style';
 
 aside {
-  @include pal((
-    color: 'white' 'black',
-    position: fixed (0 33% 0 0),
-  ));
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.33);
   z-index: 3;
+  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.33);
+  @include pal((
+    '*': ( position: fixed (0 33% 0 0), color: 'white' 'black' ),
+    'tablet+': ( position: fixed (0 50% 0 0) ),
+    'desktop+': ( position: fixed (0 75% 0 0) ),
+  ));
 }
 
 ul {

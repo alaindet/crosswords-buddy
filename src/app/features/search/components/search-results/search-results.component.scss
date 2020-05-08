@@ -1,6 +1,7 @@
 @import 'src/app/style';
 
 li {
+  cursor: pointer;
   @include pal-flex((
     cross-axis: center
   ));

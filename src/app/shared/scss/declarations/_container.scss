@@ -1,6 +1,6 @@
 .container {
   @include pal((
-    '*': ( space: px2 ),
+    '*': ( space: px2, size: w-full ),
     'tablet': ( space: px4 ),
     'desktop': ( space: px8 ),
   ));
