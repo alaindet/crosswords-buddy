@@ -28,6 +28,10 @@ export class UiService {
     private alertsService: AlertsService,
   ) {}
 
+  get cluesCount() {
+    return this.cluesService.cluesCount;
+  }
+
   get searchQuery() {
     return this.cluesSearchService.searchQuery;
   }
@@ -50,10 +54,6 @@ export class UiService {
 
   get loaded() {
     return this.loading$.asObservable().pipe(map(loading => !loading));
-  }
-
-  get areCluesLoaded() {
-    return this.cluesService.clues.pipe(map(clues => !!clues));
   }
 
   get menuIsOpen() {

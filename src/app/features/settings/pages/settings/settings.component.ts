@@ -26,7 +26,7 @@ export class SettingsPageComponent implements OnInit {
 }`;
 
   constructor(
-    private ui: UiService,
+    public ui: UiService,
     private alertsService: AlertsService,
     private cluesService: CluesService,
     private route: ActivatedRoute,

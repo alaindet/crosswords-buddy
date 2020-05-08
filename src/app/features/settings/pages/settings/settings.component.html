@@ -8,6 +8,10 @@
   DEMO
 </ui-button>
 
+<p *ngIf="ui.cluesCount | async as count">
+  Total clues: <strong>{{ count }}</strong>
+</p>
+
 <p>
   A clues file is a <code>.json</code> file like this
   <code block [innerHTML]="demo"></code>

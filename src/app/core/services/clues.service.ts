@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+import { Direction } from 'src/app/core/models/direction.enum';
 import { Clue } from 'src/app/core/models/clue.interface';
 import { CluesMap } from 'src/app/core/models/clues-map.interface';
 
@@ -13,10 +14,15 @@ export class CluesService {
   LOCAL_STORAGE_KEY = 'CROSSWORDS_BUDDY';
 
   private clues$ = new BehaviorSubject<CluesMap | null>(null);
+  private cluesCount$ = new BehaviorSubject<number>(0);
   private recentClues$ = new BehaviorSubject<Clue[]>([]);
 
   constructor() {
     this.fetchClues();
+  }
+
+  get cluesCount() {
+    return this.cluesCount$.asObservable();
   }
 
   get clues() {
@@ -40,6 +46,10 @@ export class CluesService {
 
   setClues(clues: CluesMap) {
     this.clues$.next(clues);
+    const acrossCount = Object.keys(clues[Direction.Across]).length;
+    const downCount = Object.keys(clues[Direction.Down]).length;
+    console.log('count', acrossCount + downCount);
+    this.cluesCount$.next(acrossCount + downCount);
   }
 
   clearRecentClues() {

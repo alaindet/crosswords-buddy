@@ -43,6 +43,11 @@
     </ng-container>
   </ng-template>
 
+  <!-- Count -->
+  <p *ngIf="ui.cluesCount | async as count">
+    Total clues: <strong>{{ count }}</strong>
+  </p>
+
 </ng-container>
 
 <!-- Modal -->
@@ -65,7 +70,7 @@
 
 <!-- No recent searches -->
 <ng-template #noRecents>
-  <h2>No recent searches to show</h2>
+  <h2>Start searching</h2>
   <p>
     Select a direction <em>(Across, Down)</em>,
     then start typing on the keyboard below to perform a search
