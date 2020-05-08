@@ -48,7 +48,6 @@ export class CluesService {
     this.clues$.next(clues);
     const acrossCount = Object.keys(clues[Direction.Across]).length;
     const downCount = Object.keys(clues[Direction.Down]).length;
-    console.log('count', acrossCount + downCount);
     this.cluesCount$.next(acrossCount + downCount);
   }
 
