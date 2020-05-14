@@ -7,7 +7,7 @@
 
   @include pal-media-query(wider, up) {
     margin: 0 auto;
-    max-width: 1280px;
+    max-width: pal-get('units.container');
   }
 
   .full-width {
