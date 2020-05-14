@@ -1,12 +1,21 @@
 @import 'src/app/style';
 
 aside {
-  z-index: 3;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.33);
   @include pal((
-    '*': ( position: fixed (0 33% 0 0), color: 'white' 'black' ),
-    'tablet+': ( position: fixed (0 50% 0 0) ),
-    'desktop+': ( position: fixed (0 75% 0 0) ),
+    'any': (
+      position: fixed (0 33% 0 0),
+      color: 'white' 'black',
+      _: (
+        z-index: 3,
+        box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.33),
+      )
+    ),
+    'tablet+': (
+      position: fixed (0 50% 0 0)
+    ),
+    'desktop+': (
+      position: fixed (0 75% 0 0)
+    ),
   ));
 }
 
@@ -14,8 +23,10 @@ ul {
   @include pal((
     flex: (dir: column),
     space: p0,
+    _: (
+      list-style-type: none,
+    )
   ));
-  list-style-type: none;
 }
 
 li {
@@ -26,8 +37,12 @@ li {
 
   &.active,
   &:hover {
-    background-color: pal-color-get('gray');
-    cursor: pointer;
+    @include pal((
+      color: 'gray',
+      _: (
+        cursor: pointer,
+      )
+    ));
   }
 }
 
