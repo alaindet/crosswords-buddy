@@ -1,0 +1,7 @@
+/// Accepts a named index and returns an integer. This way you aan
+@mixin z-builder($value)
+{
+  @content;
+
+  z-index: pal-get('z-indices.#{$value}');
+}

@@ -1,21 +1,31 @@
 @import 'src/app/style';
 
 li {
-  cursor: pointer;
   @include pal-flex((
-    cross-axis: center
+    cross-axis: center,
+    _: (
+      cursor: pointer,
+    )
   ));
 }
 
 .direction {
-  font-weight: bold;
-  @include pal-space(px1);
+  @include pal((
+    space: px1,
+    _: (
+      font-weight: bold,
+    )
+  ));
 }
 
 .clue {
-  width: 75%;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @include pal((
+    size: w-3/4,
+    _: (
+      display: inline-block,
+      white-space: nowrap,
+      overflow: hidden,
+      text-overflow: ellipsis,
+    )
+  ));
 }

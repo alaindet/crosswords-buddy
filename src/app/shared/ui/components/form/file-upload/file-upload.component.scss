@@ -1,10 +1,14 @@
 @import 'src/app/style';
 
 .file-upload {
-  cursor: pointer;
-  position: relative;
-  display: block;
-  height: 3rem;
+  @include pal((
+    size: h-6,
+    position: relative,
+    _: (
+      cursor: pointer,
+      display: block,
+    )
+  ));
 }
 
 input[type="file"] {
@@ -12,14 +16,13 @@ input[type="file"] {
 }
 
 .file-custom {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  user-select: none;
-  display: flex;
-  align-items: center;
+  @include pal((
+    position: absolute (0),
+    flex: ( cross-axis: center ),
+    _: (
+      user-select: none,
+    )
+  ));
 
   &.centered {
     justify-content: center;

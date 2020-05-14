@@ -1,9 +1,9 @@
 @import 'src/app/style';
 
 :host {
-  z-index: 2;
   @include pal((
     position: fixed (2 2 null 2),
+    z: 'alert',
   ));
 }
 

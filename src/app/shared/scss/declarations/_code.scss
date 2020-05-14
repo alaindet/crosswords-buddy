@@ -5,9 +5,11 @@ code {
 }
 
 code[block] {
-  white-space: pre;
   @include pal((
-    display: block,
     space: my2 p1,
+    _: (
+      display: block,
+      white-space: pre,
+    )
   ));
 }

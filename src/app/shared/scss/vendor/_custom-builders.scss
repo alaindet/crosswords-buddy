@@ -1,0 +1,15 @@
+/// Hook into Sass Pal's builder system
+///
+/// @param {String} $builder The custom builder's name being called
+/// @param {Any} $value Anything your custom builder accepts
+///
+@mixin pal-custom-builders($builder, $value)
+{
+  @content;
+
+  @if ('z' == $builder) {
+    @include z-builder($value);
+  }
+
+  // Any other custom builder invocation goes here...
+}

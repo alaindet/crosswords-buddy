@@ -5,8 +5,8 @@ aside {
     'any': (
       position: fixed (0 33% 0 0),
       color: 'white' 'black',
+      z: 'side-menu',
       _: (
-        z-index: 3,
         box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.33),
       )
     ),

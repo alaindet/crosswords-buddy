@@ -1,12 +1,13 @@
 @import 'src/app/style';
 
 button {
-  transition: all 0.15s ease-in-out;
-  // border-radius: pal-get('units.3/4');
-  letter-spacing: 2px;
   @include pal((
     border: 3px solid transparent,
     space: m1,
+    _: (
+      transition: all 0.15s ease-in-out,
+      letter-spacing: 2px,
+    )
   ));
 
   &:active,
@@ -17,7 +18,6 @@ button {
 
   @include app-fast-shadow-hover {
     box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.25);
-    // border-radius: pal-get('units.3/4');
   }
 }
 
@@ -79,18 +79,18 @@ button:active.is-active,
 
 // Size
 .size-small {
-  @include pal-space('py0,7' 'px2');
   font-size: 0.95rem;
+  @include pal-space('py0,7' 'px2');
 }
 
 .size-medium {
-  @include pal-space('py1,5' 'px3');
   font-size: 1.1rem;
+  @include pal-space('py1,5' 'px3');
 }
 
 .size-large {
-  @include pal-space(py2 px5);
   font-size: 1.3rem;
+  @include pal-space(py2 px5);
 }
 
 // Margin
@@ -100,7 +100,11 @@ button:active.is-active,
 
 // Full width
 .is-full-width {
-  display: block;
-  width: 100%;
-  margin: 0;
+  @include pal((
+    size: w-full,
+    space: m0,
+    _: (
+      display: block,
+    )
+  ));
 }

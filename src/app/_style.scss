@@ -1,5 +1,10 @@
 @import 'src/app/shared/scss/vendor/sass-pal';
-@import 'src/app/shared/scss/vendor/fonts';
-@import 'src/app/shared/scss/vendor/units';
+
+@import 'src/app/shared/scss/vendor/store/fonts';
+@import 'src/app/shared/scss/vendor/store/units';
+@import 'src/app/shared/scss/vendor/store/z-indices';
 
 @import 'src/app/shared/scss/mixins/fast-shadow-hover';
+@import 'src/app/shared/scss/mixins/z-builder';
+
+@import 'src/app/shared/scss/vendor/custom-builders';
